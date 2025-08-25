@@ -36,7 +36,7 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
         return corridor;
     }
 
-    public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight) //represent areas for rooms
+    public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight) //get area of rooms
     {
         //take a room and split it, then save in a list
         Queue<BoundsInt> roomsQueue = new Queue<BoundsInt>();
@@ -82,6 +82,7 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
                 }
             }
         }
+        return roomsList;
     }
 
     private static void SplitVertically(int minWidth, int minHeight, Queue<BoundsInt> roomsQueue1, Queue<BoundsInt> roomsQueue2)
