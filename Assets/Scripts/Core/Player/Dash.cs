@@ -4,6 +4,7 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Player player;
     [SerializeField] private float cooldown;
     [SerializeField] private float speed;
     [SerializeField] private float dashForSeconds;
@@ -11,7 +12,7 @@ public class Dash : MonoBehaviour
     public bool IsDashing { get; private set; }
     private bool _onCooldown = false;
 
-    public void StartDash(Vector2 direction)
+    public void StartDash()
     {
         if (_onCooldown || IsDashing)
         {
@@ -20,6 +21,8 @@ public class Dash : MonoBehaviour
 
         IsDashing = true;
         _onCooldown = true;
+
+        Vector2 direction = Player.MoveDirection;
         rb.linearVelocity = direction * speed;
         StartCoroutine(StopDashing());
         StartCoroutine(Cooldown());
@@ -27,12 +30,13 @@ public class Dash : MonoBehaviour
 
     public void EndDash()
     {
+        IsDashing = false;
+        
         if (Player.IsMoving)
         {
+            rb.linearVelocity = Player.MoveDirection * player.moveSpeed;
             return;
         }
-
-        IsDashing = false;
         rb.linearVelocity = Vector3.zero;
     }
 
