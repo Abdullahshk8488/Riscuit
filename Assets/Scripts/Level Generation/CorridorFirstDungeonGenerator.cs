@@ -3,10 +3,16 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Creates jagged rooms (like Minecraft tunnels)
+
 public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 {
     [SerializeField] private int corridorLength = 14, corridorWidth = 2, corridorCount = 5;
     [SerializeField] [Range(0.1f, 1f)] private float roomPercent = 0.8f; //percentage of rooms created from all potential room positions
+
+    //If you want areas where there are rooms, take this
+    private HashSet<Vector2Int> _roomArea = new HashSet<Vector2Int>();
+    public HashSet<Vector2Int> RoomArea { get { return _roomArea; } }
 
     protected override void RunProceduralGeneration()
     {
@@ -15,17 +21,22 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 
     private void CorridorFirstGeneration()
     {
+        //Create Corridors
         HashSet<Vector2Int> floorPos = new HashSet<Vector2Int>();
         HashSet<Vector2Int> potentialRoomPos = new HashSet<Vector2Int>();
 
         //Make and get all corridor tiles
         List<List<Vector2Int>> corridors = GenerateCorridors(floorPos, potentialRoomPos);
 
+        //Create Rooms
         //Make rooms along corridors
         HashSet<Vector2Int> roomPos = CreateRooms(potentialRoomPos);
 
         List<Vector2Int> deadEnds = FindAllDeadEnds(floorPos);
         CreateRoomsAtDeadEnd(deadEnds, roomPos); //roomPos to make sure the 'dead end' isn't just inside a room
+
+        //Take all areas with rooms and put them in a hashset before floor gets joined together
+        _roomArea = roomPos;
 
         //Merge corridors and rooms
         floorPos.UnionWith(roomPos);

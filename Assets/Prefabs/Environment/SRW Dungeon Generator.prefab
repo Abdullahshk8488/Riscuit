@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646255333113294276}
-  - component: {fileID: 5309490065997405933}
+  - component: {fileID: 8103174867187486809}
   - component: {fileID: 2077700091209232938}
-  - component: {fileID: 4540883262866218687}
   m_Layer: 0
   m_Name: SRW Dungeon Generator
   m_TagString: Untagged
@@ -34,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5309490065997405933
+--- !u!114 &8103174867187486809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +42,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8132939452552662802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a504cef4f8a0184dabc93581858b565, type: 3}
+  m_Script: {fileID: 11500000, guid: b75a4ea82f7d57345b9b0f00ae71a65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapVisualizer: {fileID: 2077700091209232938}
   startPos: {x: 0, y: 0}
   randomWalkParams: {fileID: 11400000, guid: b2dfb83be931876418c5b220ded3c7c5, type: 2}
+  minRoomWidth: 10
+  minRoomHeight: 10
+  dungeonWidth: 60
+  dungeonHeight: 60
+  offset: 2
+  randomWalkRooms: 1
 --- !u!114 &2077700091209232938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,21 +70,3 @@ MonoBehaviour:
   wallTilemap: {fileID: 0}
   floorTile: {fileID: 11400000, guid: b045b2f0355b91943ae6ce7c88d0043f, type: 2}
   wallTop: {fileID: 11400000, guid: a6edb2dd09c66e54da04eeb1a0226699, type: 2}
---- !u!114 &4540883262866218687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132939452552662802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cb004e66d5e9145b4ebf3fdeba181a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemapVisualizer: {fileID: 2077700091209232938}
-  startPos: {x: 0, y: 0}
-  randomWalkParams: {fileID: 11400000, guid: b2dfb83be931876418c5b220ded3c7c5, type: 2}
-  corridorLength: 30
-  corridorCount: 10
-  roomPercent: 0.858
