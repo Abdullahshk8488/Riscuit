@@ -388,11 +388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5321379981968876487, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_text
-      value: Get back up, brave biscuit bhero...
+      value: Gather your crumbs and rise once again, brave bodacious biscuit bhero...
       objectReference: {fileID: 0}
     - target: {fileID: 7030295650151610695, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_text
-      value: CRUMBLED
+      value: CRUMBLED...
       objectReference: {fileID: 0}
     - target: {fileID: 7284622852737644915, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_AnchorMax.y

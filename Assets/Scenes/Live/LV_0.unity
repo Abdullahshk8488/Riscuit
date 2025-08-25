@@ -432,10 +432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseScreen_Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8240762709679728852, guid: 50aa709a74ea70545add61b9b4151c0e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9015286330658837663, guid: 50aa709a74ea70545add61b9b4151c0e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

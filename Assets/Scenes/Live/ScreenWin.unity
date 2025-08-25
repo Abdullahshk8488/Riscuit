@@ -221,11 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7030295650151610695, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_text
-      value: LET'S GOOOOOOOOOOOOOOOOOOOOOOOOO
+      value: LET'S FUCKING GOOOOOOOOOOOOOOOOOOOOOOOOO
       objectReference: {fileID: 0}
     - target: {fileID: 7030295650151610695, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_fontSize
-      value: 40.95
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7030295650151610695, guid: 53ecfe08ce5bea046a8df537d9138b25, type: 3}
       propertyPath: m_HorizontalAlignment
