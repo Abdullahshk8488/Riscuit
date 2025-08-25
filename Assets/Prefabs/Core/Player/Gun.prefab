@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8184964617653369418, guid: 5fd98751cea66dd409413c9626d592ca, type: 3}
   bulletSpawnLocation: {fileID: 8742421426986929391}
-  fireRate: 3
+  fireRate: 10
   ammoCount: 100
 --- !u!212 &3006231448954229179
 SpriteRenderer:
