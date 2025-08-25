@@ -35,6 +35,14 @@ public class InputManager : MonoBehaviour
 
         Vector2 direction = context.ReadValue<Vector2>();
         player.Move(direction);
+
+        if (context.canceled)
+        {
+            player.SetIsMoving(false);
+            return;
+        }
+
+        player.SetIsMoving(true);
     }
 
     public void Shoot(InputAction.CallbackContext context)
@@ -58,5 +66,19 @@ public class InputManager : MonoBehaviour
         }
         player.PlayerGun.SetShootDirection(direction);
         player.PlayerGun.SetIsShooting(true);
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        Player player = PlayerManager.Instance.MainPlayer;
+        if (player == null)
+        {
+            return;
+        }
+
+        if (context.started)
+        {
+            player.PlayerDash.StartDash();
+        }
     }
 }
