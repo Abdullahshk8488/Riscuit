@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private BaseIcing bulletPrefab;
     [SerializeField] private Transform bulletSpawnLocation;
     [SerializeField] private float fireRate;
     [SerializeField] private int startAmmo;
