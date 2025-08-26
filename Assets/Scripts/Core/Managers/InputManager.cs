@@ -81,4 +81,18 @@ public class InputManager : MonoBehaviour
             player.PlayerDash.StartDash();
         }
     }
+
+    public void Reload(InputAction.CallbackContext context)
+    {
+        Player player = PlayerManager.Instance.MainPlayer;
+        if (player == null)
+        {
+            return;
+        }
+
+        if (context.started)
+        {
+            player.PlayerGun.Reload();
+        }
+    }
 }
