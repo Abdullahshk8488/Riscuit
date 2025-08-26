@@ -106,37 +106,22 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
 //allows getting random direction
 public static class Direction2D
 {
-    public static List<Vector2Int> cardinalDirectionsList = new List<Vector2Int>
+    public static List<Vector2Int> directionsList = new List<Vector2Int>
     {
+        //CARDINALS
         new Vector2Int(0,1), //UP
         new Vector2Int(1,0), //RIGHT
         new Vector2Int(0,-1), //DOWN
-        new Vector2Int(-1,0) //LEFT
+        new Vector2Int(-1,0), //LEFT
+        //DIAGONALS
+        new Vector2Int(-1,1), //LEFT UP
+        new Vector2Int(1,1), //RIGHT UP
+        new Vector2Int(-1,-1), //LEFT DOWN
+        new Vector2Int(1,-1) //RIGHT DOWN
     };
 
     public static Vector2Int GetRandomDirection()
     {
-        return cardinalDirectionsList[Random.Range(0, cardinalDirectionsList.Count)];
-    }
-
-    public static Vector2Int GetDirection90From(Vector2Int directionFromCell)
-    {
-        if (directionFromCell == Vector2Int.up)
-        {
-            return Vector2Int.right;
-        }
-        if (directionFromCell == Vector2Int.right)
-        {
-            return Vector2Int.down;
-        }
-        if (directionFromCell == Vector2Int.down)
-        {
-            return Vector2Int.left;
-        }
-        if (directionFromCell == Vector2Int.left)
-        {
-            return Vector2Int.up;
-        }
-        return Vector2Int.zero;
+        return directionsList[Random.Range(0, directionsList.Count - 4)];
     }
 }
