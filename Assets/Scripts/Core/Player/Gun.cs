@@ -1,18 +1,29 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private BaseIcing bulletPrefab;
     [SerializeField] private Transform bulletSpawnLocation;
     [SerializeField] private float fireRate;
-    [SerializeField] private float ammoCount;
+    [SerializeField] private int startAmmo;
+    [SerializeField] private float reloadRadius;
+    [SerializeField] private int maxAmmo;
+    [SerializeField] private SpriteRenderer ammoSprite;
 
+    private int _currentAmmo = 0;
     private bool _canShoot = true;
     private bool _onCooldown = false;
     private bool _isShooting = false;
     private Vector2 _direction = Vector2.right;
+    private BaseIcing _currentIcing;
+
+    private void Awake()
+    {
+        _currentIcing = bulletPrefab;
+        _currentAmmo = startAmmo;
+        UpdateAmmoSprite();
+    }
 
     private void Update()
     {
@@ -20,13 +31,31 @@ public class Gun : MonoBehaviour
             _onCooldown
             || !_canShoot
             || !_isShooting
-            || ammoCount == 0
+            || _currentAmmo == 0
             )
         {
             return;
         }
 
         Shoot();
+    }
+
+    private void UpdateAmmoSprite()
+    {
+        float xScale = (float)_currentAmmo / (float)maxAmmo;
+        Vector3 scale = new Vector3(
+            xScale,
+            ammoSprite.transform.localScale.y,
+            ammoSprite.transform.localScale.z);
+
+        float xTransform = (xScale - 1.0f) * 0.5f;
+        Vector3 position = new Vector3(
+            xTransform,
+            ammoSprite.transform.localPosition.y,
+            ammoSprite.transform.localPosition.z);
+
+        ammoSprite.transform.localScale = scale;
+        ammoSprite.transform.localPosition = position;
     }
 
     public void SetShootDirection(Vector2 direction)
@@ -37,10 +66,6 @@ public class Gun : MonoBehaviour
         {
             _direction.x = 0.0f;
         }
-        //else if (direction.x != 0.0f)
-        //{
-        //    moveDirection = direction.x > 0.0f ? PlayerMovement.Direction.Right : PlayerMovement.Direction.Left;
-        //}
 
         // Rotate the gun
         transform.right = _direction;
@@ -54,9 +79,11 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         // Spawn the bullet
-        Bullet bullet = Instantiate(bulletPrefab);
+        BaseIcing bullet = Instantiate(_currentIcing);
         bullet.transform.position = bulletSpawnLocation.position;
         bullet.Shoot(_direction);
+        _currentAmmo--;
+        UpdateAmmoSprite();
 
         // Go on cooldown
         _onCooldown = true;
@@ -69,8 +96,28 @@ public class Gun : MonoBehaviour
         _onCooldown = false;
     }
 
-    public void Reload(float ammo)
+    public void Reload()
     {
-        ammoCount += ammo;
+        Debug.Log("Reloading");
+        int ammo = 0;
+        var collidedItems = Physics2D.OverlapCircleAll(transform.position, reloadRadius);
+        foreach (var item in collidedItems)
+        {
+            if (item.CompareTag("Corpse"))
+            {
+                // Get the ammo component
+                // Increment the ammo
+                if(item.TryGetComponent(out BaseIcing newIcing))
+                {
+                    _currentIcing = newIcing;
+                }
+
+                ammo += 10;
+            }
+        }
+
+        _currentAmmo += ammo;
+        _currentAmmo = Mathf.Min(_currentAmmo, maxAmmo);
+        UpdateAmmoSprite();
     }
 }
