@@ -87,7 +87,7 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         {
             //if neighbour only found in one direction, it is a dead end
             int neighboursCount = 0;
-            foreach(Vector2Int direction in Direction2D.directionsList)
+            foreach(Vector2Int direction in Direction2D.cardinalDirectionList)
             {
                 if (floorPos.Contains(pos + direction))
                 {
