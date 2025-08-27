@@ -2,9 +2,10 @@ using UnityEngine;
 
 public interface IEnemyBaseState
 {
-    void EnterState();
+    void EnterState(Enemy_Controller enemy);
 
-    void UpdateState();
+    void UpdateState(Enemy_Controller enemy);
 
-    void ExitState();
+    void CollisionEnter(Enemy_Controller enemy);
+
 }

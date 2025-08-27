@@ -25901,6 +25901,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 940787323}
     - target: {fileID: 1291437917614336826, guid: beecfb22486a3694abf6140a27a4a2ef, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291437917614336826, guid: beecfb22486a3694abf6140a27a4a2ef, type: 3}
       propertyPath: <currentNode>k__BackingField
       value: 
       objectReference: {fileID: 8910289}

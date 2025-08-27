@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class EnemyRunAwayState : MonoBehaviour
+public class EnemyRunAwayState : IEnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void EnterState(Enemy_Controller enemy)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CollisionEnter(Enemy_Controller enemy)
     {
-        
+
+    }
+
+    public void UpdateState(Enemy_Controller enemy)
+    {
+
     }
 }

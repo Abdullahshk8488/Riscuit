@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class EnemyDeadState : MonoBehaviour
+public class EnemyDeadState : IEnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void EnterState(Enemy_Controller enemy)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CollisionEnter(Enemy_Controller enemy)
     {
-        
+
+    }
+
+    public void UpdateState(Enemy_Controller enemy)
+    {
+
     }
 }
