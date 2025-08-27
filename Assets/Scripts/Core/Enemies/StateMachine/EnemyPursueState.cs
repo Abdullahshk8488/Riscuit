@@ -17,9 +17,12 @@ public class EnemyPursueState : IEnemyBaseState
         _path = enemy.path;
     }
 
-    public void CollisionEnter(Enemy_Controller enemy)
+    public void CollisionEnter(Enemy_Controller enemy, Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            enemy.SwitchState(enemy.AttackState);
+        }
     }
 
     public void UpdateState(Enemy_Controller enemy)

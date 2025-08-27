@@ -6,6 +6,6 @@ public interface IEnemyBaseState
 
     void UpdateState(Enemy_Controller enemy);
 
-    void CollisionEnter(Enemy_Controller enemy);
+    void CollisionEnter(Enemy_Controller enemy, Collision2D collision);
 
 }

@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Enemy_Controller : MonoBehaviour, IDamagable
 {
+    [Header("Pathfinding")]
     [field: SerializeField] public Node currentNode { get; private set; }
     [field: SerializeField] public List<Node> path { get; private set; }
+    [Header("Health")]
     [field: SerializeField] public float MaxHealth { get; set; }
     [field: SerializeField] public float CurrentHealth { get; set; }
-
+    [Header("Enemy Data")]
+    [SerializeField] BaseIcing bulletPrefab;
     public Player player;
     public float speed = 3;
 
 
     private IEnemyBaseState _currentState;
-    private EnemyPursueState PursueState = new EnemyPursueState();
-    private EnemyAttackState AttackState = new EnemyAttackState();
-    private EnemyRunAwayState RunAwayState = new EnemyRunAwayState();
-    private EnemyDeadState DeadState = new EnemyDeadState();
+    public EnemyPursueState PursueState = new EnemyPursueState();
+    public EnemyAttackState AttackState = new EnemyAttackState();
+    public EnemyRunAwayState RunAwayState = new EnemyRunAwayState();
+    public EnemyDeadState DeadState = new EnemyDeadState();
 
 
 
@@ -45,7 +48,12 @@ public class Enemy_Controller : MonoBehaviour, IDamagable
         _currentState.UpdateState(this);
     }
 
-    private void SwitchState(IEnemyBaseState newState)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _currentState.CollisionEnter(this, collision);
+    }
+
+    public void SwitchState(IEnemyBaseState newState)
     {
         _currentState = newState;
         path.Clear();
