@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_Controller : MonoBehaviour
+public class Enemy_Controller : MonoBehaviour, IDamagable
 {
-    [SerializeField] private float maxHealth = 100;
-    [field: SerializeField] public float CurrentHealth { get; private set; }
 
     [field: SerializeField] public Node currentNode { get; private set; }
     [field: SerializeField] public List<Node> path { get; private set; }
+    [field: SerializeField] public float MaxHealth { get; set; }
+    [field: SerializeField] public float CurrentHealth { get; set; }
 
     [SerializeField] private Player player;
     [SerializeField] private float speed = 3;
@@ -37,6 +37,7 @@ public class Enemy_Controller : MonoBehaviour
         }
 
         currentState = StateMachine.Pursue;
+        CurrentHealth = MaxHealth;
     }
 
     private void Update()
@@ -46,12 +47,6 @@ public class Enemy_Controller : MonoBehaviour
             case StateMachine.Pursue:
                 Pursue();
                 break;
-            case StateMachine.Attack:
-                Attack();
-                break;
-            case StateMachine.Evade:
-                Evade();
-                break;
         }
 
         if (currentState != StateMachine.Pursue)
@@ -59,16 +54,6 @@ public class Enemy_Controller : MonoBehaviour
             currentState = StateMachine.Pursue;
             path.Clear();
         }
-        //else if (currentState != StateMachine.Attack)
-        //{
-        //    currentState = StateMachine.Attack;
-        //    path.Clear();
-        //}
-        //else if (currentState != StateMachine.Evade)
-        //{
-        //    currentState = StateMachine.Evade;
-        //    path.Clear();
-        //}
 
         CreatePath();
     }
@@ -79,16 +64,6 @@ public class Enemy_Controller : MonoBehaviour
         {
             path = AStarManager.Instance.GeneratePath(currentNode, AStarManager.Instance.FindNearestNode(player.transform.position));
         }
-    }
-
-    private void Attack()
-    {
-
-    }
-
-    private void Evade()
-    {
-
     }
 
     private void CreatePath()
@@ -106,5 +81,10 @@ public class Enemy_Controller : MonoBehaviour
                 path.RemoveAt(x);
             }
         }
+    }
+
+    public void DamageTaken(float damageAmount)
+    {
+        CurrentHealth -= damageAmount;
     }
 }
