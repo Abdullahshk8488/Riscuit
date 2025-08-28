@@ -11,7 +11,12 @@ public abstract class BaseIcing : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected float bulletSpeed;
     [SerializeField] protected float destroyAfterSeconds;
-    [SerializeField] protected bool destroyOnHit;
+    [SerializeField] protected bool destroyOnHit = true;
+    [SerializeField] protected float fireRate;
+    [SerializeField] protected string animName;
+
+    public float FireRate { get => fireRate; }
+    public string AnimName { get => animName; }
 
     protected virtual void Start()
     {
@@ -28,11 +33,11 @@ public abstract class BaseIcing : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             DamageEnemy();
+        }
 
-            if (destroyOnHit)
-            {
-                Destroy(gameObject);
-            }
+        if (destroyOnHit)
+        {
+            Destroy(gameObject);
         }
     }
 

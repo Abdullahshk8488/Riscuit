@@ -51,6 +51,8 @@ MonoBehaviour:
   bulletSpeed: 6
   destroyAfterSeconds: 5
   destroyOnHit: 0
+  fireRate: 7
+  animName: 
   numberOfBounces: 4
 --- !u!212 &3738477734049821085
 SpriteRenderer:

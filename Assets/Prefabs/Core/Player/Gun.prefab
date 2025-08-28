@@ -141,6 +141,9 @@ MonoBehaviour:
   reloadRadius: 2
   maxAmmo: 100
   ammoSprite: {fileID: 4055592344094932353}
+  ammoDropLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!212 &6269172827420680049
 SpriteRenderer:
   m_ObjectHideFlags: 0
