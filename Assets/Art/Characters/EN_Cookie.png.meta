@@ -1,52 +1,31 @@
 fileFormatVersion: 2
-guid: fec2c25316101084db00d649f7de3b35
+guid: a4709955a2ba2814cba1d8ef43afd05a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7071924685563151038
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_0
+      213: 9070287623830309347
+    second: EN_Cookie_0
   - first:
-      213: -1617906994958041409
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_1
+      213: 3859809313464194167
+    second: EN_Cookie_1
   - first:
-      213: -7379418353230992655
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_2
+      213: -7484419751588142593
+    second: EN_Cookie_2
   - first:
-      213: -7263097541727934552
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_3
+      213: -6641095154347152802
+    second: EN_Cookie_3
   - first:
-      213: 3146464171059420101
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_4
+      213: 7795267457548882154
+    second: EN_Cookie_4
   - first:
-      213: -5870044690126188771
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_5
+      213: -4152982922033286379
+    second: EN_Cookie_5
   - first:
-      213: -5919162670760173461
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_6
+      213: -6265248159446345393
+    second: EN_Cookie_6
   - first:
-      213: -9170661936841621357
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_7
-  - first:
-      213: 5826221307253159117
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_8
-  - first:
-      213: -3477216657060435918
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_9
-  - first:
-      213: 3356937460114407284
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_10
-  - first:
-      213: -308606641221121460
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_11
-  - first:
-      213: -442658527737068852
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_12
-  - first:
-      213: 424050705935899678
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_13
-  - first:
-      213: 8794848574467964158
-    second: IT_Weapon_FrostingGunFillingBullet_SHEET_14
+      213: -6263458503053883349
+    second: EN_Cookie_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_0
+      name: EN_Cookie_IDLE
       rect:
         serializedVersion: 2
         x: 0
@@ -150,21 +129,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb2ce496806842260800000000000000
-      internalID: 7071924685563151038
+      spriteID: 3e90705998220ed70800000000000000
+      internalID: 9070287623830309347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_1
+      name: EN_Cookie_Attacking1
       rect:
         serializedVersion: 2
         x: 64
@@ -172,21 +151,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbef7edf82a0c89e0800000000000000
-      internalID: -1617906994958041409
+      spriteID: 77417c5de1cc09530800000000000000
+      internalID: 3859809313464194167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_2
+      name: EN_Cookie_Attacking2
       rect:
         serializedVersion: 2
         x: 128
@@ -194,21 +173,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fa2ba60b1a079990800000000000000
-      internalID: -7379418353230992655
+      spriteID: ff1ebacd3eff12890800000000000000
+      internalID: -7484419751588142593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_3
+      name: EN_Cookie_BulletFall_1
       rect:
         serializedVersion: 2
         x: 0
@@ -216,21 +195,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a72b40744b443b90800000000000000
-      internalID: -7263097541727934552
+      spriteID: e5ae195a42716d3a0800000000000000
+      internalID: -6641095154347152802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_4
+      name: EN_Cookie_BulletFall_2
       rect:
         serializedVersion: 2
         x: 64
@@ -238,21 +217,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cb9d7e2e7c7aab20800000000000000
-      internalID: 3146464171059420101
+      spriteID: ae01d58937a5e2c60800000000000000
+      internalID: 7795267457548882154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_5
+      name: EN_Cookie_BulletFall_3
       rect:
         serializedVersion: 2
         x: 128
@@ -260,21 +239,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1f4c558479698ea0800000000000000
-      internalID: -5870044690126188771
+      spriteID: 51331fd2904ad56c0800000000000000
+      internalID: -4152982922033286379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_6
+      name: EN_Cookie_BulletRun_1
       rect:
         serializedVersion: 2
         x: 0
@@ -282,21 +261,21 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b60669979e8eadda0800000000000000
-      internalID: -5919162670760173461
+      spriteID: f49d7826efd5d09a0800000000000000
+      internalID: -6265248159446345393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_7
+      name: EN_Cookie_BulletRun_2
       rect:
         serializedVersion: 2
         x: 64
@@ -304,37 +283,15 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3900c538e834bb080800000000000000
-      internalID: -9170661936841621357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IT_Weapon_FrostingGunFillingBullet_SHEET_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc4f2a90965ead050800000000000000
-      internalID: 5826221307253159117
+      spriteID: b28c21c3da9b319a0800000000000000
+      internalID: -6263458503053883349
       vertices: []
       indices: 
       edges: []
@@ -343,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 45a63cfd68759bf4e8e41a535020a14d
+    spriteID: 8baa6b2cb78474c409c8951b45caf9a9
     internalID: 0
     vertices: []
     indices: 
@@ -353,15 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IT_Weapon_FrostingGunFillingBullet_SHEET_0: 7071924685563151038
-      IT_Weapon_FrostingGunFillingBullet_SHEET_1: -1617906994958041409
-      IT_Weapon_FrostingGunFillingBullet_SHEET_2: -7379418353230992655
-      IT_Weapon_FrostingGunFillingBullet_SHEET_3: -7263097541727934552
-      IT_Weapon_FrostingGunFillingBullet_SHEET_4: 3146464171059420101
-      IT_Weapon_FrostingGunFillingBullet_SHEET_5: -5870044690126188771
-      IT_Weapon_FrostingGunFillingBullet_SHEET_6: -5919162670760173461
-      IT_Weapon_FrostingGunFillingBullet_SHEET_7: -9170661936841621357
-      IT_Weapon_FrostingGunFillingBullet_SHEET_8: 5826221307253159117
+      EN_Cookie_Attacking1: 3859809313464194167
+      EN_Cookie_Attacking2: -7484419751588142593
+      EN_Cookie_BulletFall_1: -6641095154347152802
+      EN_Cookie_BulletFall_2: 7795267457548882154
+      EN_Cookie_BulletFall_3: -4152982922033286379
+      EN_Cookie_BulletRun_1: -6265248159446345393
+      EN_Cookie_BulletRun_2: -6263458503053883349
+      EN_Cookie_IDLE: 9070287623830309347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
