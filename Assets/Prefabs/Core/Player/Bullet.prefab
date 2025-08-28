@@ -50,6 +50,9 @@ MonoBehaviour:
   rb: {fileID: 416907432166834432}
   bulletSpeed: 5
   destroyAfterSeconds: 5
+  destroyOnHit: 1
+  fireRate: 10
+  animName: 
 --- !u!212 &3443459618023891918
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,11 +5,12 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private BaseIcing bulletPrefab;
     [SerializeField] private Transform bulletSpawnLocation;
-    [SerializeField] private float fireRate;
     [SerializeField] private int startAmmo;
     [SerializeField] private float reloadRadius;
     [SerializeField] private int maxAmmo;
     [SerializeField] private SpriteRenderer ammoSprite;
+
+    [SerializeField] private LayerMask ammoDropLayerMask;
 
     private int _currentAmmo = 0;
     private bool _canShoot = true;
@@ -92,32 +93,19 @@ public class Gun : MonoBehaviour
 
     private IEnumerator ResetCooldown()
     {
-        yield return new WaitForSeconds(1.0f / fireRate);
+        yield return new WaitForSeconds(1.0f / _currentIcing.FireRate);
         _onCooldown = false;
     }
 
     public void Reload()
     {
-        Debug.Log("Reloading");
-        int ammo = 0;
-        var collidedItems = Physics2D.OverlapCircleAll(transform.position, reloadRadius);
-        foreach (var item in collidedItems)
-        {
-            if (item.CompareTag("Corpse"))
-            {
-                // Get the ammo component
-                // Increment the ammo
-                if(item.TryGetComponent(out BaseIcing newIcing))
-                {
-                    _currentIcing = newIcing;
-                }
+        var collidedItem = Physics2D.OverlapCircle(transform.position, reloadRadius, ammoDropLayerMask);
 
-                ammo += 10;
-            }
-        }
-
-        _currentAmmo += ammo;
-        _currentAmmo = Mathf.Min(_currentAmmo, maxAmmo);
+        AmmoDrop ammoDrop = collidedItem.GetComponent<AmmoDrop>();
+        _currentAmmo = Mathf.Min(_currentAmmo + ammoDrop.AmmoAmount, maxAmmo);
+        _currentIcing = ammoDrop.BulletPrefab;
         UpdateAmmoSprite();
+
+        Destroy(collidedItem.gameObject);
     }
 }
