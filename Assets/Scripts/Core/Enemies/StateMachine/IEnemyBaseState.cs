@@ -6,6 +6,8 @@ public interface IEnemyBaseState
 
     void UpdateState(Enemy_Controller enemy);
 
-    void CollisionEnter(Enemy_Controller enemy, Collision2D collision);
+    void TriggerEnter(Enemy_Controller enemy, Collider2D collision);
+
+    void TriggerExit(Enemy_Controller enemy, Collider2D collision);
 
 }

@@ -17,18 +17,26 @@ public class EnemyPursueState : IEnemyBaseState
         _path = enemy.path;
     }
 
-    public void CollisionEnter(Enemy_Controller enemy, Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            enemy.SwitchState(enemy.AttackState);
-        }
-    }
-
     public void UpdateState(Enemy_Controller enemy)
     {
         Pursue();
         Createpath(enemy);
+    }
+
+    public void TriggerEnter(Enemy_Controller enemy, Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            enemy.CanShoot = true;
+            enemy.IsShooting = true;
+            enemy.OnCooldown = false;
+            enemy.SwitchState(enemy.AttackState);
+        }
+    }
+
+    public void TriggerExit(Enemy_Controller enemy, Collider2D collision)
+    {
+
     }
 
     private void Pursue()

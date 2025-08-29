@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,10 +13,14 @@ public class Enemy_Controller : MonoBehaviour, IDamagable
     [field: SerializeField] public float MaxHealth { get; set; }
     [field: SerializeField] public float CurrentHealth { get; set; }
     [Header("Enemy Data")]
-    [SerializeField] BaseIcing bulletPrefab;
+    public BaseIcing bulletPrefab;
+    public Transform bulletSpawnLocation;
     public Player player;
     public float speed = 3;
 
+    public bool IsShooting { get; set; } = true;
+    public bool CanShoot { get; set; } = true;
+    public bool OnCooldown { get; set; } = false;
 
     private IEnemyBaseState _currentState;
     public EnemyPursueState PursueState = new EnemyPursueState();
@@ -48,9 +54,14 @@ public class Enemy_Controller : MonoBehaviour, IDamagable
         _currentState.UpdateState(this);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        _currentState.CollisionEnter(this, collision);
+        _currentState.TriggerEnter(this, collision);
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        _currentState.TriggerExit(this, collision);
     }
 
     public void SwitchState(IEnemyBaseState newState)
@@ -63,5 +74,23 @@ public class Enemy_Controller : MonoBehaviour, IDamagable
     public void DamageTaken(float damageAmount)
     {
         CurrentHealth -= damageAmount;
+    }
+
+    public void Shot()
+    {
+        BaseIcing bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = bulletSpawnLocation.position;
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        bullet.Shoot(direction);
+
+        // Go on cooldown
+        OnCooldown = true;
+        StartCoroutine(ResetCooldown());
+    }
+
+    private IEnumerator ResetCooldown()
+    {
+        yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
+        OnCooldown = false;
     }
 }
