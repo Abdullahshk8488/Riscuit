@@ -9,7 +9,7 @@ public class RoomFirstDungeonGenerator : SRWDungeonGenerator
 {
     [SerializeField] private int minRoomWidth = 4, minRoomHeight = 4;
     [SerializeField] private int dungeonWidth = 20, dungeonHeight = 20;
-    [SerializeField] [Range(0,10)] private int offset = 1;
+    [SerializeField][Range(0, 10)] private int offset = 1;
     [SerializeField] private bool randomWalkRooms = false; //checking if want to do messy rooms or box ones
 
     //If you want areas where there are rooms, take this
@@ -18,6 +18,11 @@ public class RoomFirstDungeonGenerator : SRWDungeonGenerator
 
     protected override void RunProceduralGeneration()
     {
+        RoomManager roomManager = RoomManager.Instance;
+        if (roomManager != null)
+        {
+            roomManager.ResetRooms();
+        }
         GenerateRooms();
     }
 
@@ -58,19 +63,24 @@ public class RoomFirstDungeonGenerator : SRWDungeonGenerator
     private HashSet<Vector2Int> CreateRandomRooms(List<BoundsInt> roomList)
     {
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+
+        // Iterate through the room list
+        // At the end of a single iteration, pass the room and the list of the floor tiles to the room manager
         for (int i = 0; i < roomList.Count; i++)
         {
             var roomBounds = roomList[i];
             var roomCenter = new Vector2Int(Mathf.RoundToInt(roomBounds.center.x), Mathf.RoundToInt(roomBounds.center.y));
             var roomFloor = RunRandomWalk(randomWalkParams, roomCenter);
-            foreach(var pos in roomFloor)
+            foreach (var pos in roomFloor)
             {
-                if(pos.x >= (roomBounds.xMin + offset) && pos.x <= (roomBounds.xMax - offset) &&
+                if (pos.x >= (roomBounds.xMin + offset) && pos.x <= (roomBounds.xMax - offset) &&
                     pos.y >= (roomBounds.yMin + offset) && pos.y <= (roomBounds.yMax - offset))
                 {
                     floor.Add(pos);
                 }
             }
+
+            RoomManager.Instance.CreateRoom(floor);
         }
         return floor;
     }
@@ -81,7 +91,7 @@ public class RoomFirstDungeonGenerator : SRWDungeonGenerator
         var curRoomCenter = roomCenters[Random.Range(0, roomCenters.Count)];
         roomCenters.Remove(curRoomCenter);
 
-        while(roomCenters.Count > 0)
+        while (roomCenters.Count > 0)
         {
             Vector2Int closest = FindClosestPointTo(curRoomCenter, roomCenters);
             roomCenters.Remove(closest);

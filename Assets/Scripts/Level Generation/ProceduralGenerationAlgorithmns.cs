@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ProceduralGenerationAlgorithmns : MonoBehaviour
 {
-    //Walk in Many Directions
+    // Walk in Many Directions
     public static HashSet<Vector2Int> SimpleRandomWalk(Vector2Int startPos, int walkLength)
     {
         HashSet<Vector2Int> path = new HashSet<Vector2Int>();
@@ -19,7 +19,7 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
         return path;
     }
 
-    //Walk in One Direction
+    // Walk in One Direction
     public static List<Vector2Int> RandomWalkCorridor(Vector2Int startPos, int corridorLength)
     {
         List<Vector2Int> corridor = new List<Vector2Int>();
@@ -35,9 +35,9 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
         return corridor;
     }
 
-    public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight) //get area of rooms
+    public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight) // get area of rooms
     {
-        //take a room and split it, then save in a list
+        // take a room and split it, then save in a list
         Queue<BoundsInt> roomsQueue = new Queue<BoundsInt>();
         List<BoundsInt> roomsList = new List<BoundsInt>();
         roomsQueue.Enqueue(spaceToSplit);
@@ -46,12 +46,12 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
         {
             var room = roomsQueue.Dequeue();
 
-            //Only take rooms that are equal or higher than minimum size
+            // Only take rooms that are equal or higher than minimum size
             if (room.size.y >= minHeight && room.size.x >= minWidth)
             {
-                if (Random.value < 0.5f) //Random.value gives 0 to 1, randomize results between splittling horizontal and vertical
+                if (Random.value < 0.5f) // Random.value gives 0 to 1, randomize results between splittling horizontal and vertical
                 {
-                    if (room.size.y >= minHeight * 2) //Can contain 2 rooms
+                    if (room.size.y >= minHeight * 2) // Can contain 2 rooms
                     {
                         SplitHorizontally(minWidth, roomsQueue, room);
                     }
@@ -59,7 +59,7 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
                     {
                         SplitVertically(minHeight, roomsQueue, room);
                     }
-                    else //cannot be split, but can contain a room
+                    else // cannot be split, but can contain a room
                     {
                         roomsList.Add(room);
                     }
@@ -70,11 +70,11 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
                     {
                         SplitVertically(minWidth, roomsQueue, room);
                     }
-                    else if (room.size.y >= minHeight * 2) //Can contain 2 rooms
+                    else if (room.size.y >= minHeight * 2) // Can contain 2 rooms
                     {
                         SplitHorizontally(minHeight, roomsQueue, room);
                     }
-                    else //cannot be split, but can contain a room
+                    else // cannot be split, but can contain a room
                     {
                         roomsList.Add(room);
                     }
@@ -103,41 +103,35 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
     }
 }
 
-//allows getting random direction
+// allows getting random direction
 public static class Direction2D
 {
     public static List<Vector2Int> cardinalDirectionList = new List<Vector2Int>
     {
-        //CARDINALS
-        new Vector2Int(0,1), //UP
-        new Vector2Int(1,0), //RIGHT
-        new Vector2Int(0,-1), //DOWN
-        new Vector2Int(-1,0), //LEFT
-        //DIAGONALS
-        //new Vector2Int(-1,1), //LEFT UP
-        //new Vector2Int(1,1), //RIGHT UP
-        //new Vector2Int(-1,-1), //LEFT DOWN
-        //new Vector2Int(1,-1) //RIGHT DOWN
+        new Vector2Int(0,1), // UP
+        new Vector2Int(1,0), // RIGHT
+        new Vector2Int(0,-1), // DOWN
+        new Vector2Int(-1,0), // LEFT
     };
 
     public static List<Vector2Int> diagonalDirectionsList = new List<Vector2Int>
     {
-        new Vector2Int(1,1), //RIGHT UP
-        new Vector2Int(1,-1), //RIGHT DOWN
-        new Vector2Int(-1,-1), //LEFT DOWN
-        new Vector2Int(-1,1) //LEFT UP
+        new Vector2Int(1,1), // RIGHT UP
+        new Vector2Int(1,-1), // RIGHT DOWN
+        new Vector2Int(-1,-1), // LEFT DOWN
+        new Vector2Int(-1,1) // LEFT UP
     };
 
     public static List<Vector2Int> eightDirectionsList = new List<Vector2Int>
     {
-        new Vector2Int(0,1), //UP
-        new Vector2Int(1,1), //RIGHT UP
-        new Vector2Int(1,0), //RIGHT
-        new Vector2Int(1,-1), //RIGHT DOWN
-        new Vector2Int(0,-1), //DOWN
-        new Vector2Int(-1,-1), //LEFT DOWN
-        new Vector2Int(-1,0), //LEFT
-        new Vector2Int(-1,1) //LEFT UP
+        new Vector2Int(0,1), // UP
+        new Vector2Int(1,1), // RIGHT UP
+        new Vector2Int(1,0), // RIGHT
+        new Vector2Int(1,-1), // RIGHT DOWN
+        new Vector2Int(0,-1), // DOWN
+        new Vector2Int(-1,-1), // LEFT DOWN
+        new Vector2Int(-1,0), // LEFT
+        new Vector2Int(-1,1) // LEFT UP
     };
 
     public static Vector2Int GetRandomDirection()

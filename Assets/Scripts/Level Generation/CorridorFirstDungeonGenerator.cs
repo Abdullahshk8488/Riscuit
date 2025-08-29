@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //Creates jagged rooms (like Minecraft tunnels)
@@ -8,7 +8,7 @@ using UnityEngine;
 public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 {
     [SerializeField] private int corridorLength = 14, corridorWidth = 2, corridorCount = 5;
-    [SerializeField] [Range(0.1f, 1f)] private float roomPercent = 0.8f; //percentage of rooms created from all potential room positions
+    [SerializeField][Range(0.1f, 1f)] private float roomPercent = 0.8f; //percentage of rooms created from all potential room positions
 
     //If you want areas where there are rooms, take this
     private HashSet<Vector2Int> _roomArea = new HashSet<Vector2Int>();
@@ -32,8 +32,18 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         //Make rooms along corridors
         HashSet<Vector2Int> roomPos = CreateRooms(potentialRoomPos);
 
+        RoomManager roomManager = RoomManager.Instance;
+        if (roomManager != null)
+        {
+            RoomManager.Instance.CreateRoom(roomPos);
+        }
+
         List<Vector2Int> deadEnds = FindAllDeadEnds(floorPos);
         CreateRoomsAtDeadEnd(deadEnds, roomPos); //roomPos to make sure the 'dead end' isn't just inside a room
+        if (roomManager != null)
+        {
+            RoomManager.Instance.CreateRoom(deadEnds.ToHashSet());
+        }
 
         //Take all areas with rooms and put them in a hashset before floor gets joined together
         _roomArea = roomPos;
@@ -72,7 +82,7 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
     {
         foreach (Vector2Int pos in deadEnds)
         {
-            if(roomFloors.Contains(pos) == false)
+            if (roomFloors.Contains(pos) == false)
             {
                 HashSet<Vector2Int> room = RunRandomWalk(randomWalkParams, pos);
                 roomFloors.UnionWith(room);
@@ -87,14 +97,14 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         {
             //if neighbour only found in one direction, it is a dead end
             int neighboursCount = 0;
-            foreach(Vector2Int direction in Direction2D.cardinalDirectionList)
+            foreach (Vector2Int direction in Direction2D.cardinalDirectionList)
             {
                 if (floorPos.Contains(pos + direction))
                 {
                     neighboursCount++;
                 }
             }
-            if(neighboursCount == 1)
+            if (neighboursCount == 1)
             {
                 deadEnds.Add(pos);
             }
@@ -118,7 +128,7 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         return roomPos;
     }
 
-    private List<List<Vector2Int>> GenerateCorridors (HashSet<Vector2Int> floorPos, HashSet<Vector2Int> potentialRoomPos)
+    private List<List<Vector2Int>> GenerateCorridors(HashSet<Vector2Int> floorPos, HashSet<Vector2Int> potentialRoomPos)
     {
         Vector2Int curPos = startPos;
         potentialRoomPos.Add(curPos);
