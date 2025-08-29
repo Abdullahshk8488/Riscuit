@@ -14,6 +14,7 @@ public abstract class BaseIcing : MonoBehaviour
     [SerializeField] protected bool destroyOnHit = true;
     [SerializeField] protected float fireRate;
     [SerializeField] protected string animName;
+    [SerializeField] protected float damage;
 
     public float FireRate { get => fireRate; }
     public string AnimName { get => animName; }
@@ -32,17 +33,12 @@ public abstract class BaseIcing : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            DamageEnemy();
+            collision.GetComponent<IDamageable>().DamageTaken(damage);
         }
 
         if (destroyOnHit)
         {
             Destroy(gameObject);
         }
-    }
-
-    protected virtual void DamageEnemy()
-    {
-
     }
 }

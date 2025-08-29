@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_Controller : MonoBehaviour, IDamagable
+public class Enemy_Controller : MonoBehaviour, IDamageable
 {
     [Header("Pathfinding")]
     [field: SerializeField] public Node currentNode { get; private set; }
@@ -74,6 +74,7 @@ public class Enemy_Controller : MonoBehaviour, IDamagable
     public void DamageTaken(float damageAmount)
     {
         CurrentHealth -= damageAmount;
+        Debug.Log($"Enemy took {damageAmount} damage. Current health: {CurrentHealth}");
     }
 
     public void Shot()

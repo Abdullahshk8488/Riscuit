@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8584843521160639926}
   - component: {fileID: 3191671306747633353}
+  - component: {fileID: 4782233849611100129}
   m_Layer: 0
   m_Name: RangeAttack
   m_TagString: Untagged
@@ -68,6 +69,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
+--- !u!114 &4782233849611100129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189504768303361409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fbc4aa0eb62d44da2e7a1c5c33f298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 1291437917614336826}
 --- !u!1 &5334932043799661058
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +93,7 @@ GameObject:
   - component: {fileID: 6585130835349809326}
   - component: {fileID: 8148358459388070882}
   - component: {fileID: 1291437917614336826}
-  - component: {fileID: 3355631737299326470}
+  - component: {fileID: 4221460687006510125}
   m_Layer: 0
   m_Name: Enemy_MidRange
   m_TagString: Enemy
@@ -175,11 +189,11 @@ MonoBehaviour:
   <path>k__BackingField: []
   <MaxHealth>k__BackingField: 0
   <CurrentHealth>k__BackingField: 0
-  bulletPrefab: {fileID: 8184964617653369418, guid: e4ced58a313182d4c9f55fe02d2ea9ee, type: 3}
+  bulletPrefab: {fileID: 2645551516947654039, guid: e4ced58a313182d4c9f55fe02d2ea9ee, type: 3}
   bulletSpawnLocation: {fileID: 8366694714825059714}
   player: {fileID: 0}
   speed: 3
---- !u!58 &3355631737299326470
+--- !u!58 &4221460687006510125
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,12 +223,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 0.5
 --- !u!1 &5717921098028748771
 GameObject:
   m_ObjectHideFlags: 0

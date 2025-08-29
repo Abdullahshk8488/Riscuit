@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IDamagable
+public interface IDamageable
 {
     float MaxHealth { get; set; }
     float CurrentHealth { get; set; }

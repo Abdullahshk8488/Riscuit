@@ -53,6 +53,7 @@ MonoBehaviour:
   destroyOnHit: 1
   fireRate: 10
   animName: 
+  damage: 10
 --- !u!212 &3443459618023891918
 SpriteRenderer:
   m_ObjectHideFlags: 0

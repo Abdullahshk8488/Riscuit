@@ -9,7 +9,9 @@ public class EnemyBullet : BaseIcing
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                //player.TakeDamage(1);
+                collision.GetComponent<IDamageable>().DamageTaken(damage);
+
+                Destroy(gameObject);
             }
         }
     }
