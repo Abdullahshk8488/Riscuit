@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: fec2c25316101084db00d649f7de3b35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7071924685563151038
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_0
+  - first:
+      213: -1617906994958041409
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_1
+  - first:
+      213: -7379418353230992655
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_2
+  - first:
+      213: -7263097541727934552
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_3
+  - first:
+      213: 3146464171059420101
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_4
+  - first:
+      213: -5870044690126188771
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_5
+  - first:
+      213: -5919162670760173461
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_6
+  - first:
+      213: -9170661936841621357
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_7
+  - first:
+      213: 5826221307253159117
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_8
+  - first:
+      213: -3477216657060435918
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_9
+  - first:
+      213: 3356937460114407284
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_10
+  - first:
+      213: -308606641221121460
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_11
+  - first:
+      213: -442658527737068852
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_12
+  - first:
+      213: 424050705935899678
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_13
+  - first:
+      213: 8794848574467964158
+    second: IT_Weapon_FrostingGunFillingBullet_SHEET_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb2ce496806842260800000000000000
+      internalID: 7071924685563151038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbef7edf82a0c89e0800000000000000
+      internalID: -1617906994958041409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa2ba60b1a079990800000000000000
+      internalID: -7379418353230992655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a72b40744b443b90800000000000000
+      internalID: -7263097541727934552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb9d7e2e7c7aab20800000000000000
+      internalID: 3146464171059420101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f4c558479698ea0800000000000000
+      internalID: -5870044690126188771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b60669979e8eadda0800000000000000
+      internalID: -5919162670760173461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3900c538e834bb080800000000000000
+      internalID: -9170661936841621357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IT_Weapon_FrostingGunFillingBullet_SHEET_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4f2a90965ead050800000000000000
+      internalID: 5826221307253159117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 45a63cfd68759bf4e8e41a535020a14d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      IT_Weapon_FrostingGunFillingBullet_SHEET_0: 7071924685563151038
+      IT_Weapon_FrostingGunFillingBullet_SHEET_1: -1617906994958041409
+      IT_Weapon_FrostingGunFillingBullet_SHEET_2: -7379418353230992655
+      IT_Weapon_FrostingGunFillingBullet_SHEET_3: -7263097541727934552
+      IT_Weapon_FrostingGunFillingBullet_SHEET_4: 3146464171059420101
+      IT_Weapon_FrostingGunFillingBullet_SHEET_5: -5870044690126188771
+      IT_Weapon_FrostingGunFillingBullet_SHEET_6: -5919162670760173461
+      IT_Weapon_FrostingGunFillingBullet_SHEET_7: -9170661936841621357
+      IT_Weapon_FrostingGunFillingBullet_SHEET_8: 5826221307253159117
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
