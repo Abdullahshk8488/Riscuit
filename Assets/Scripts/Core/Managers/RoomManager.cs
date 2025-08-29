@@ -8,6 +8,8 @@ public class RoomManager : MonoBehaviour
     private List<Room> rooms = new List<Room>();
     public Room CurrentRoom { get; private set; }
     private int _roomCount = 0;
+
+    private GameObject _roomsParent = null;
     public List<Node> GetCurrentRoomNodes
     {
         get
@@ -31,9 +33,10 @@ public class RoomManager : MonoBehaviour
 
     public void ResetRooms()
     {
+        Debug.Log("Destroying rooms");
         foreach (Room room in rooms)
         {
-            foreach(Node node in room.RoomNodes)
+            foreach (Node node in room.RoomNodes)
             {
                 Destroy(node.gameObject);
             }
@@ -43,24 +46,33 @@ public class RoomManager : MonoBehaviour
         CurrentRoom = null;
     }
 
-    public void AddRoom(Room room)
+    public void CreateRoom(HashSet<Vector2Int> nodes, Vector2 centerPoint)
     {
-        rooms.Add(room);
-    }
+        if (_roomsParent == null)
+        {
+            _roomsParent = new GameObject("Rooms");
+        }
 
-    public void CreateRoom(HashSet<Vector2Int> nodes)
-    {
+        GameObject roomGo = new GameObject("Room " + _roomCount++);
+        Room room = roomGo.AddComponent<Room>();
+        roomGo.transform.SetParent(_roomsParent.transform);
+        rooms.Add(room);
+
         List<Node> nodeList = new List<Node>();
         foreach (Vector2Int node in nodes)
         {
             Node newNode = Instantiate(nodePrefab, new Vector2(node.x + 0.5f, node.y + 0.5f), Quaternion.identity);
             nodeList.Add(newNode);
+            newNode.transform.SetParent(room.transform);
         }
 
         CreateConnections(nodeList);
-        GameObject roomGo = new GameObject("Room " + _roomCount++);
-        Room room = roomGo.AddComponent<Room>();
         room.RoomNodes = nodeList;
+
+        GameObject centerOfTheRoom = new GameObject("Center Point");
+        centerOfTheRoom.transform.position = centerPoint;
+        centerOfTheRoom.transform.SetParent(room.transform);
+        room.CenterOfTheRoom = centerOfTheRoom.transform;
     }
 
     private void CreateConnections(List<Node> nodeList)
