@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1260161870076521002}
   - component: {fileID: 6574580035144199168}
   - component: {fileID: 2280198957841638639}
+  - component: {fileID: 7787241390300351503}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -3722279819981231351, guid: 0912f51dc0996834b9fa8edc8adcfa5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,6 +189,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!95 &7787241390300351503
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631051893229777056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff1401d61b5f8d342a47b1679cf10544, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4906027000086150662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,12 +220,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4702267138494662035}
     m_Modifications:
     - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.497
       objectReference: {fileID: 0}
     - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -236,10 +263,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4055592344094932353, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7071924685563151038, guid: fec2c25316101084db00d649f7de3b35, type: 3}
     - target: {fileID: 4115003345631325141, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 6269172827420680049, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb6217c697e186e43abca772823ce2cd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

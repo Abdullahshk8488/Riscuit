@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646255333113294276}
+  - component: {fileID: 2105915880773165392}
   - component: {fileID: 8103174867187486809}
   - component: {fileID: 2077700091209232938}
   m_Layer: 0
@@ -33,6 +34,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105915880773165392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132939452552662802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cb004e66d5e9145b4ebf3fdeba181a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemapVisualizer: {fileID: 2077700091209232938}
+  startPos: {x: 0, y: 0}
+  randomWalkParams: {fileID: 11400000, guid: b2dfb83be931876418c5b220ded3c7c5, type: 2}
+  corridorLength: 31
+  corridorWidth: 2
+  corridorCount: 13
+  roomPercent: 0.8
 --- !u!114 &8103174867187486809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,14 +89,14 @@ MonoBehaviour:
   floorTilemap: {fileID: 0}
   wallTilemap: {fileID: 0}
   floorTile: {fileID: 11400000, guid: 9e4b8b468bbb8414a921637494ac0fb7, type: 2}
-  wallTile: {fileID: 11400000, guid: aa655ce44f295fc44807e2c7b0fd0ab9, type: 2}
-  wallSideRight: {fileID: 0}
-  wallSideLeft: {fileID: 0}
-  wallBottom: {fileID: 0}
-  wallFull: {fileID: 0}
-  wallInnerCornerDownLeft: {fileID: 0}
-  wallInnerCornerDownRight: {fileID: 0}
-  wallDiagonalCornerDownRight: {fileID: 0}
-  wallDiagonalCornerDownLeft: {fileID: 0}
-  wallDiagonalCornerUpRight: {fileID: 0}
-  wallDiagonalCornerUpLeft: {fileID: 0}
+  wallTile: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallSideRight: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallSideLeft: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallBottom: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallFull: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallInnerCornerDownLeft: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallInnerCornerDownRight: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallDiagonalCornerDownRight: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallDiagonalCornerDownLeft: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallDiagonalCornerUpRight: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}
+  wallDiagonalCornerUpLeft: {fileID: 11400000, guid: 368e8563900df724cb42550bce2519d3, type: 2}

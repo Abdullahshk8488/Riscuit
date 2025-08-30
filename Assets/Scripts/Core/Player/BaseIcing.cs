@@ -14,6 +14,7 @@ public abstract class BaseIcing : MonoBehaviour
     [SerializeField] protected bool destroyOnHit = true;
     [SerializeField] protected float fireRate;
     [SerializeField] protected string animName;
+    [field: SerializeField] public Sprite GunFillingSprite { get; protected set; }
 
     public float FireRate { get => fireRate; }
     public string AnimName { get => animName; }
@@ -26,6 +27,7 @@ public abstract class BaseIcing : MonoBehaviour
     public void Shoot(Vector2 direction)
     {
         rb.linearVelocity = direction * bulletSpeed;
+        transform.right = direction;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +37,7 @@ public abstract class BaseIcing : MonoBehaviour
             DamageEnemy();
         }
 
-        if (destroyOnHit)
+        if (destroyOnHit && !collision.CompareTag("Player"))
         {
             Destroy(gameObject);
         }

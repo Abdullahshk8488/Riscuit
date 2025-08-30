@@ -104,6 +104,7 @@ public class Gun : MonoBehaviour
         AmmoDrop ammoDrop = collidedItem.GetComponent<AmmoDrop>();
         _currentAmmo = Mathf.Min(_currentAmmo + ammoDrop.AmmoAmount, maxAmmo);
         _currentIcing = ammoDrop.BulletPrefab;
+        ammoSprite.sprite = _currentIcing.GunFillingSprite;
         UpdateAmmoSprite();
 
         Destroy(collidedItem.gameObject);
