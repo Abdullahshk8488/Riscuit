@@ -53,6 +53,7 @@ MonoBehaviour:
   destroyOnHit: 1
   fireRate: 10
   animName: 
+  damage: 10
   <GunFillingSprite>k__BackingField: {fileID: 7071924685563151038, guid: fec2c25316101084db00d649f7de3b35, type: 3}
 --- !u!212 &3443459618023891918
 SpriteRenderer:
