@@ -14,6 +14,7 @@ public abstract class BaseIcing : MonoBehaviour
     [SerializeField] protected bool destroyOnHit = true;
     [SerializeField] protected float fireRate;
     [SerializeField] protected string animName;
+    [SerializeField] protected float damage;
     [field: SerializeField] public Sprite GunFillingSprite { get; protected set; }
 
     public float FireRate { get => fireRate; }
@@ -24,7 +25,7 @@ public abstract class BaseIcing : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
-    public void Shoot(Vector2 direction)
+    public virtual void Shoot(Vector2 direction)
     {
         rb.linearVelocity = direction * bulletSpeed;
         transform.right = direction;
@@ -34,17 +35,12 @@ public abstract class BaseIcing : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            DamageEnemy();
+            collision.GetComponent<IDamageable>().DamageTaken(damage);
         }
 
         if (destroyOnHit && !collision.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
-    }
-
-    protected virtual void DamageEnemy()
-    {
-
     }
 }
