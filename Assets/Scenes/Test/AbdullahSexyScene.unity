@@ -19800,6 +19800,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6134762283666736436, guid: e5d578e7a98f9e644a7a79232b752792, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134762283666736436, guid: e5d578e7a98f9e644a7a79232b752792, type: 3}
+      propertyPath: dashForSeconds
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159963041797403625, guid: e5d578e7a98f9e644a7a79232b752792, type: 3}
+      propertyPath: <moveSpeed>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

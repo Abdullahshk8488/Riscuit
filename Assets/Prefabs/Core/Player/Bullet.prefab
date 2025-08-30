@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 416907432166834432}
-  bulletSpeed: 5
+  bulletSpeed: 15
   destroyAfterSeconds: 5
   destroyOnHit: 1
   fireRate: 10
