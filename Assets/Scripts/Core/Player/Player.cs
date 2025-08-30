@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IDamageable
     [field: SerializeField] public float CurrentHealth { get; set; }
     [SerializeField] private List<SpriteAndHealth> spriteAndHealths;
     public static Vector2 MoveDirection { get; private set; }
+    [field: SerializeField] public Animator PlayerAnimator { get; private set; }
 
     private void Awake()
     {
@@ -50,10 +51,30 @@ public class Player : MonoBehaviour, IDamageable
     public void DamageTaken(float damageAmount)
     {
         CurrentHealth -= damageAmount;
+        if (CurrentHealth <= 0.0f)
+        {
+            PlayerDies();
+            return;
+        }
+
+        AnimateBasedOnHP();
     }
 
-    private void AnimateBasedOnHP()
+    [ContextMenu("Animate Ooga Booga")]
+    public void AnimateBasedOnHP()
     {
+        for (int i = spriteAndHealths.Count - 1; i >= 0; i--)
+        {
+            if ((CurrentHealth / MaxHealth) <= spriteAndHealths[i].startHealthPercentage)
+            {
+                PlayerAnimator.Play(spriteAndHealths[i].spriteAnimName);
+                break;
+            }
+        }
+    }
 
+    private void PlayerDies()
+    {
+        PlayerAnimator.Play("Death");
     }
 }
