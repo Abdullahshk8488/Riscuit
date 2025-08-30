@@ -104,12 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 416907432166834432}
-  bulletSpeed: 0
-  destroyAfterSeconds: 0
+  bulletSpeed: 3
+  destroyAfterSeconds: 5
   destroyOnHit: 1
-  fireRate: 0
+  fireRate: 0.5
   animName: 
-  damage: 0
+  damage: 25
   bulletCollider: {fileID: 2321576913722990496}
 --- !u!50 &416907432166834432
 Rigidbody2D:
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
