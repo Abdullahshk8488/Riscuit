@@ -55,6 +55,8 @@ MonoBehaviour:
   <moveSpeed>k__BackingField: 10
   <PlayerGun>k__BackingField: {fileID: 2113436114156901658}
   <PlayerDash>k__BackingField: {fileID: 6134762283666736436}
+  <MaxHealth>k__BackingField: 0
+  <CurrentHealth>k__BackingField: 0
   spriteAndHealths:
   - startHealthPercentage: 1
     spriteAnimName: HPFull

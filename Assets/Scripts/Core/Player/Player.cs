@@ -9,7 +9,6 @@ public struct SpriteAndHealth
     public string spriteAnimName;
 }
 
-public class Player : MonoBehaviour
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private Rigidbody2D rb;
