@@ -24,7 +24,7 @@ public abstract class BaseIcing : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
-    public void Shoot(Vector2 direction)
+    public virtual void Shoot(Vector2 direction)
     {
         rb.linearVelocity = direction * bulletSpeed;
     }

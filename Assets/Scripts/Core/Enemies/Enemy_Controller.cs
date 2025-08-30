@@ -17,6 +17,9 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public Transform bulletSpawnLocation;
     public Player player;
     public float speed = 3;
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private float animationDuration;
 
     public bool IsShooting { get; set; } = true;
     public bool CanShoot { get; set; } = true;
@@ -82,6 +85,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         BaseIcing bullet = Instantiate(bulletPrefab);
         bullet.transform.position = bulletSpawnLocation.position;
         Vector2 direction = (player.transform.position - transform.position).normalized;
+        StartCoroutine(PreAttackAniamtion());
         bullet.Shoot(direction);
 
         // Go on cooldown
@@ -89,9 +93,16 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         StartCoroutine(ResetCooldown());
     }
 
+    private IEnumerator PreAttackAniamtion()
+    {
+        //animator.SetBool("ResetAmmo", false);
+        yield return new WaitForSeconds(animationDuration);
+    }
+
     private IEnumerator ResetCooldown()
     {
         yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
+        //animator.SetBool("ResetAmmo", true);
         OnCooldown = false;
     }
 }

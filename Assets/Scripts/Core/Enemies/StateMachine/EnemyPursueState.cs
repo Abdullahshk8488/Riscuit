@@ -19,6 +19,11 @@ public class EnemyPursueState : IEnemyBaseState
 
     public void UpdateState(Enemy_Controller enemy)
     {
+        if (enemy.CurrentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeadState);
+            return;
+        }
         Pursue();
         Createpath(enemy);
     }
