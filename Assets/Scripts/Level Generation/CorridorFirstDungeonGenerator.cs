@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //Creates jagged rooms (like Minecraft tunnels)
@@ -8,7 +8,7 @@ using UnityEngine;
 public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 {
     [SerializeField] private int corridorLength = 14, corridorWidth = 2, corridorCount = 5;
-    [SerializeField] [Range(0.1f, 1f)] private float roomPercent = 0.8f; //percentage of rooms created from all potential room positions
+    [SerializeField][Range(0.1f, 1f)] private float roomPercent = 0.8f; //percentage of rooms created from all potential room positions
 
     //If you want areas where there are rooms, take this
     private HashSet<Vector2Int> _roomArea = new HashSet<Vector2Int>();
@@ -16,6 +16,11 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 
     protected override void RunProceduralGeneration()
     {
+        RoomManager roomManager = RoomManager.Instance;
+        if (roomManager != null)
+        {
+            roomManager.ResetRooms();
+        }
         CorridorFirstGeneration();
     }
 
@@ -31,6 +36,7 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         //Create Rooms
         //Make rooms along corridors
         HashSet<Vector2Int> roomPos = CreateRooms(potentialRoomPos);
+
 
         List<Vector2Int> deadEnds = FindAllDeadEnds(floorPos);
         CreateRoomsAtDeadEnd(deadEnds, roomPos); //roomPos to make sure the 'dead end' isn't just inside a room
@@ -72,9 +78,14 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
     {
         foreach (Vector2Int pos in deadEnds)
         {
-            if(roomFloors.Contains(pos) == false)
+            if (roomFloors.Contains(pos) == false)
             {
                 HashSet<Vector2Int> room = RunRandomWalk(randomWalkParams, pos);
+                RoomManager roomManager = RoomManager.Instance;
+                if (roomManager != null)
+                {
+                    roomManager.CreateRoom(room, GetCenterPoint(room.ToList()));
+                }
                 roomFloors.UnionWith(room);
             }
         }
@@ -87,14 +98,14 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         {
             //if neighbour only found in one direction, it is a dead end
             int neighboursCount = 0;
-            foreach(Vector2Int direction in Direction2D.cardinalDirectionList)
+            foreach (Vector2Int direction in Direction2D.cardinalDirectionList)
             {
                 if (floorPos.Contains(pos + direction))
                 {
                     neighboursCount++;
                 }
             }
-            if(neighboursCount == 1)
+            if (neighboursCount == 1)
             {
                 deadEnds.Add(pos);
             }
@@ -113,12 +124,37 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         foreach (Vector2Int roomPosition in roomsToCreate)
         {
             HashSet<Vector2Int> roomFloor = RunRandomWalk(randomWalkParams, roomPosition);
+            RoomManager roomManager = RoomManager.Instance;
+            if (roomManager != null)
+            {
+                roomManager.CreateRoom(roomFloor, GetCenterPoint(roomFloor.ToList()));
+            }
             roomPos.UnionWith(roomFloor);
         }
         return roomPos;
     }
 
-    private List<List<Vector2Int>> GenerateCorridors (HashSet<Vector2Int> floorPos, HashSet<Vector2Int> potentialRoomPos)
+    private Vector2 GetCenterPoint(List<Vector2Int> roomNodes)
+    {
+        Vector2 centerPos = new Vector2();
+
+        Vector2 minPos = roomNodes[0];
+        Vector2 maxPos = roomNodes[0];
+
+        for (int i = 0; i < roomNodes.Count; i++)
+        {
+            minPos.x = Mathf.Min(minPos.x, roomNodes[i].x);
+            minPos.y = Mathf.Min(minPos.y, roomNodes[i].y);
+
+            maxPos.x = Mathf.Max(maxPos.x, roomNodes[i].x);
+            maxPos.y = Mathf.Max(maxPos.y, roomNodes[i].y);
+        }
+
+        centerPos = (minPos + maxPos) * 0.5f;
+        return centerPos;
+    }
+
+    private List<List<Vector2Int>> GenerateCorridors(HashSet<Vector2Int> floorPos, HashSet<Vector2Int> potentialRoomPos)
     {
         Vector2Int curPos = startPos;
         potentialRoomPos.Add(curPos);
