@@ -348,8 +348,8 @@ RectTransform:
   - {fileID: 4553735213819589412}
   m_Father: {fileID: 7880291634050907350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0}
-  m_AnchorMax: {x: 0.8, y: 0.5}
+  m_AnchorMin: {x: 0.3, y: 0}
+  m_AnchorMax: {x: 0.7, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -612,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9409064029011796, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_fontSize
-      value: 21.3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_Pivot.x
@@ -644,7 +644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9409064029011796, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_fontSize
-      value: 21.3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_Pivot.x
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -832,7 +832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9409064029011796, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_fontSize
-      value: 21.3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_Pivot.x
@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3299669574448180006, guid: 585a4a4789b8f434b980a9d5a9b0b1c9, type: 3}
       propertyPath: m_LocalPosition.x
