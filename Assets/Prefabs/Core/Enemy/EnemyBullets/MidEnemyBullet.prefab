@@ -52,7 +52,7 @@ MonoBehaviour:
   bulletSpeed: 5
   destroyAfterSeconds: 5
   destroyOnHit: 1
-  fireRate: 0.5
+  fireRate: 5
   animName: 
   damage: 5
   bulletCollider: {fileID: 2607313770380239959}

@@ -80,27 +80,32 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
 
     public void Shot()
     {
+        if (OnCooldown) return;
+
+        OnCooldown = true;
+        StartCoroutine(AttackSequence());
+    }
+
+    private IEnumerator AttackSequence()
+    {
+        // Pre attack animation
+        animator.SetBool("ResetAmmo", false);
+        yield return new WaitForSeconds(animationDuration);
+
+        // Shoot bullet
         BaseIcing bullet = Instantiate(bulletPrefab);
         bullet.transform.position = bulletSpawnLocation.position;
         Vector2 direction = (player.transform.position - transform.position).normalized;
-        StartCoroutine(PreAttackAniamtion());
         bullet.Shoot(direction);
 
         // Go on cooldown
-        OnCooldown = true;
         StartCoroutine(ResetCooldown());
-    }
-
-    private IEnumerator PreAttackAniamtion()
-    {
-        //animator.SetBool("ResetAmmo", false);
-        yield return new WaitForSeconds(animationDuration);
     }
 
     private IEnumerator ResetCooldown()
     {
+        animator.SetBool("ResetAmmo", true);
         yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
-        //animator.SetBool("ResetAmmo", true);
         OnCooldown = false;
     }
 }

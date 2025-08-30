@@ -35,7 +35,6 @@ public class EnemyAttackState : IEnemyBaseState
     {
         enemy.CanShoot = false;
         enemy.IsShooting = false;
-        enemy.OnCooldown = false;
 
         enemy.SwitchState(enemy.PursueState);
     }

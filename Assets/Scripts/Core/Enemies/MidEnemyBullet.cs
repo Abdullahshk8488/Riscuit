@@ -8,7 +8,6 @@ public class MidEnemyBullet : BaseIcing
     public override void Shoot(Vector2 direction)
     {
         base.Shoot(direction);
-        animator.SetBool("IsShooting", true);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
