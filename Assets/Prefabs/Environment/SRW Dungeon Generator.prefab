@@ -68,5 +68,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorTilemap: {fileID: 0}
   wallTilemap: {fileID: 0}
-  floorTile: {fileID: 11400000, guid: b045b2f0355b91943ae6ce7c88d0043f, type: 2}
-  wallTop: {fileID: 11400000, guid: a6edb2dd09c66e54da04eeb1a0226699, type: 2}
+  floorTile: {fileID: 11400000, guid: 9e4b8b468bbb8414a921637494ac0fb7, type: 2}
+  wallTile: {fileID: 11400000, guid: aa655ce44f295fc44807e2c7b0fd0ab9, type: 2}
+  wallSideRight: {fileID: 0}
+  wallSideLeft: {fileID: 0}
+  wallBottom: {fileID: 0}
+  wallFull: {fileID: 0}
+  wallInnerCornerDownLeft: {fileID: 0}
+  wallInnerCornerDownRight: {fileID: 0}
+  wallDiagonalCornerDownRight: {fileID: 0}
+  wallDiagonalCornerDownLeft: {fileID: 0}
+  wallDiagonalCornerUpRight: {fileID: 0}
+  wallDiagonalCornerUpLeft: {fileID: 0}
