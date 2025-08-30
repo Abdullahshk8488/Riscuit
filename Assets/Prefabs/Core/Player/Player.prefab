@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1260161870076521002}
-  <moveSpeed>k__BackingField: 3
+  <moveSpeed>k__BackingField: 10
   <PlayerGun>k__BackingField: {fileID: 2113436114156901658}
   <PlayerDash>k__BackingField: {fileID: 6134762283666736436}
 --- !u!114 &6134762283666736436
@@ -68,8 +68,8 @@ MonoBehaviour:
   rb: {fileID: 1260161870076521002}
   player: {fileID: 9159963041797403625}
   cooldown: 0.8
-  speed: 15
-  dashForSeconds: 0.2
+  speed: 30
+  dashForSeconds: 0.3
 --- !u!50 &1260161870076521002
 Rigidbody2D:
   serializedVersion: 5
