@@ -20,7 +20,7 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
     }
 
     // Walk in One Direction
-    public static List<Vector2Int> RandomWalkCorridor(Vector2Int startPos, int corridorLength)
+    public static List<Vector2Int> RandomWalkCorridor(Vector2Int startPos, int corridorLength, out Vector2Int endPos)
     {
         List<Vector2Int> corridor = new List<Vector2Int>();
         Vector2Int direction = Direction2D.GetRandomDirection();
@@ -32,6 +32,8 @@ public class ProceduralGenerationAlgorithmns : MonoBehaviour
             curPos += direction;
             corridor.Add(curPos);
         }
+
+        endPos = corridor[corridor.Count - 1];
         return corridor;
     }
 

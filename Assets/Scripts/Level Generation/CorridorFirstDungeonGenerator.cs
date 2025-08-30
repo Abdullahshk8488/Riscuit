@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public struct CorridorStartEnd
+{
+    public Vector2Int start, end;
+}
+
 //Creates jagged rooms (like Minecraft tunnels)
 
 public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
@@ -13,6 +18,7 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
     //If you want areas where there are rooms, take this
     private HashSet<Vector2Int> _roomArea = new HashSet<Vector2Int>();
     public HashSet<Vector2Int> RoomArea { get { return _roomArea; } }
+    private List<CorridorStartEnd> _corridorsStartEnd = new();
 
     protected override void RunProceduralGeneration()
     {
@@ -22,6 +28,12 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
             roomManager.ResetRooms();
         }
         CorridorFirstGeneration();
+
+        if (roomManager != null)
+        {
+            roomManager.SetTriggerForRooms();
+            roomManager.SetFirstRoom();
+        }
     }
 
     private void CorridorFirstGeneration()
@@ -48,10 +60,16 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
         floorPos.UnionWith(roomPos);
 
         //Increade corridor width
+        RoomManager roomManager = RoomManager.Instance;
         for (int i = 0; i < corridors.Count; i++)
         {
             corridors[i] = IncreaseCorridorBrush(corridors[i]);
             floorPos.UnionWith(corridors[i]);
+        }
+
+        if (roomManager != null)
+        {
+            roomManager.PlaceTriggers(_corridorsStartEnd);
         }
 
         tilemapVisualizer.PaintFloorTiles(floorPos);
@@ -162,7 +180,12 @@ public class CorridorFirstDungeonGenerator : SRWDungeonGenerator
 
         for (int i = 0; i < corridorCount; i++)
         {
-            List<Vector2Int> corridor = ProceduralGenerationAlgorithmns.RandomWalkCorridor(curPos, corridorLength);
+            List<Vector2Int> corridor = ProceduralGenerationAlgorithmns.RandomWalkCorridor(curPos, corridorLength, out Vector2Int endPos);
+            CorridorStartEnd corridorStartEnd = new CorridorStartEnd();
+            corridorStartEnd.start = curPos;
+            corridorStartEnd.end = endPos;
+            _corridorsStartEnd.Add(corridorStartEnd);
+            
             corridors.Add(corridor);
             curPos = corridor[corridor.Count - 1]; //Set to last position of corridor
             potentialRoomPos.Add(curPos); //add start and each end of corridor

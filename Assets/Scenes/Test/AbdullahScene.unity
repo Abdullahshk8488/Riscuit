@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2113436114156901658, guid: e5d578e7a98f9e644a7a79232b752792, type: 3}
+      propertyPath: turnSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4602484194988323516, guid: e5d578e7a98f9e644a7a79232b752792, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

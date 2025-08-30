@@ -25,6 +25,12 @@ public class RoomFirstDungeonGenerator : SRWDungeonGenerator
             roomManager.ResetRooms();
         }
         GenerateRooms();
+
+        if (roomManager != null)
+        {
+            roomManager.SetFirstRoom();
+            Debug.Log($"First roon: {roomManager.CurrentRoom}");
+        }
     }
 
     private void GenerateRooms()
