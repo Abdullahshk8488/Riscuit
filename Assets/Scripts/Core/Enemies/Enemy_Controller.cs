@@ -18,7 +18,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public float speed = 3;
     [Header("Animator")]
     public Animator enemyAnimator;
-    [SerializeField] private Animator attackAnimator;
+    public Animator attackAnimator;
     [SerializeField] private float animationDuration;
 
     public bool IsShooting { get; set; } = true;
