@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4580662893617852806
+--- !u!1 &4581582498224816432
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3569591487279943906}
-  - component: {fileID: 2409802458500343992}
+  - component: {fileID: 3460459422466561802}
+  - component: {fileID: 4336722817950231321}
   m_Layer: 0
-  m_Name: RoomManager 1
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3569591487279943906
+--- !u!4 &3460459422466561802
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580662893617852806}
+  m_GameObject: {fileID: 4581582498224816432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,17 +32,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2409802458500343992
+--- !u!114 &4336722817950231321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580662893617852806}
+  m_GameObject: {fileID: 4581582498224816432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77262dc6910a1f5469115fc1e0d7cc52, type: 3}
+  m_Script: {fileID: 11500000, guid: 3476a31343489fc42803062ec976f61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodePrefab: {fileID: 3895360296894067909, guid: 32a70eaee4999ee4e9159e90596d5c87, type: 3}
-  doorTrigger: {fileID: 2786639711868928814, guid: 5c425bdf0b1347f4b96e21f8c2d6d350, type: 3}

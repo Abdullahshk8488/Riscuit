@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,9 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private List<SpriteAndHealth> spriteAndHealths;
     public static Vector2 MoveDirection { get; private set; }
     [field: SerializeField] public Animator PlayerAnimator { get; private set; }
+    [SerializeField] private float playDefeatScreenInSeconds = 0.7f;
+
+    private bool isPlayerDead = false;
 
     private void Awake()
     {
@@ -50,6 +54,11 @@ public class Player : MonoBehaviour, IDamageable
 
     public void DamageTaken(float damageAmount)
     {
+        if (isPlayerDead)
+        {
+            return;
+        }
+
         CurrentHealth -= damageAmount;
         if (CurrentHealth <= 0.0f)
         {
@@ -75,6 +84,17 @@ public class Player : MonoBehaviour, IDamageable
 
     private void PlayerDies()
     {
+        isPlayerDead = true;
         PlayerAnimator.Play("Death");
+        PlayerManager.Instance.SetPlayer(null);
+        rb.linearVelocity = Vector2.zero;
+
+        StartCoroutine(PlayLoseScreen());
+    }
+    
+    private IEnumerator PlayLoseScreen()
+    {
+        yield return new WaitForSeconds(playDefeatScreenInSeconds);
+        SceneController.Instance.LoadLevel("ScreenLose");
     }
 }

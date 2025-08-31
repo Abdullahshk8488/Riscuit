@@ -95,4 +95,12 @@ public class InputManager : MonoBehaviour
             player.PlayerGun.Reload();
         }
     }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            GameManager.Instance.TogglePause();
+        }
+    }
 }
