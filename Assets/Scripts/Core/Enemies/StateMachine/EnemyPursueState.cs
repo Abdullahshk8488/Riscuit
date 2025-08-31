@@ -25,10 +25,10 @@ public class EnemyPursueState : IEnemyBaseState
             return;
         }
 
-        // --- Separation Logic ---
+        // Separation Logic
         Vector2 separation = Vector2.zero;
-        float separationRadius = 1.5f; // tweak as needed
-        float separationStrength = 1.0f; // tweak as needed
+        float separationRadius = 1.5f;
+        float separationStrength = 1.0f;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, separationRadius);
         int nearbyEnemies = 0;
@@ -46,11 +46,11 @@ public class EnemyPursueState : IEnemyBaseState
             }
         }
 
-        // --- Pathfinding Movement ---
+        // Pathfinding Functions 
         Pursue();
         Createpath(enemy);
 
-        // --- Combine Movement ---
+        // Combine Movement
         Vector2 moveDirection = Vector2.zero;
         if (_path != null && _path.Count > 0)
         {
