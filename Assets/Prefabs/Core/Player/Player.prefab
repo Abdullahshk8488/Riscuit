@@ -67,6 +67,9 @@ MonoBehaviour:
   - startHealthPercentage: 0.25
     spriteAnimName: HPCrit
   <PlayerAnimator>k__BackingField: {fileID: 7787241390300351503}
+  playDefeatScreenInSeconds: 0.7
+  deathSound: {fileID: 8300000, guid: f39555fbb66df9d4cbb123786a39414d, type: 3}
+  playerHurt: {fileID: 8300000, guid: 1e7696797f81cd54eb43613f7ca191bf, type: 3}
 --- !u!114 &6134762283666736436
 MonoBehaviour:
   m_ObjectHideFlags: 0

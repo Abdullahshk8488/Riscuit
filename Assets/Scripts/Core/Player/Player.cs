@@ -23,6 +23,8 @@ public class Player : MonoBehaviour, IDamageable
     public static Vector2 MoveDirection { get; private set; }
     [field: SerializeField] public Animator PlayerAnimator { get; private set; }
     [SerializeField] private float playDefeatScreenInSeconds = 0.7f;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip playerHurt;
 
     private bool isPlayerDead = false;
 
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         CurrentHealth -= damageAmount;
+        SoundFXManager.Instance.PlaySoundClip(playerHurt, transform);
         if (CurrentHealth <= 0.0f)
         {
             PlayerDies();
@@ -88,6 +91,8 @@ public class Player : MonoBehaviour, IDamageable
         PlayerAnimator.Play("Death");
         PlayerManager.Instance.SetPlayer(null);
         rb.linearVelocity = Vector2.zero;
+
+        SoundFXManager.Instance.PlaySoundClip(deathSound, transform, 1.0f);
 
         StartCoroutine(PlayLoseScreen());
     }

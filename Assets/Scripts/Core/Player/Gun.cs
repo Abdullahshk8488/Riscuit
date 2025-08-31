@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private float reloadRadius;
     [SerializeField] private int maxAmmo;
     [SerializeField] private SpriteRenderer ammoSprite;
+    [SerializeField] private AudioClip shootAudioClip;
+    [SerializeField] private AudioClip reloadAudioClip;
 
     [SerializeField] private LayerMask ammoDropLayerMask;
 
@@ -84,10 +86,10 @@ public class Gun : MonoBehaviour
         bullet.transform.position = bulletSpawnLocation.position;
         bullet.Shoot(_direction);
         _currentAmmo--;
-        UpdateAmmoSprite();
-
-        // Go on cooldown
         _onCooldown = true;
+
+        SoundFXManager.Instance.PlaySoundClip(shootAudioClip, transform);
+        UpdateAmmoSprite();
         StartCoroutine(ResetCooldown());
     }
 
@@ -105,6 +107,7 @@ public class Gun : MonoBehaviour
         _currentAmmo = Mathf.Min(_currentAmmo + ammoDrop.AmmoAmount, maxAmmo);
         _currentIcing = ammoDrop.BulletPrefab;
         ammoSprite.sprite = _currentIcing.GunFillingSprite;
+        SoundFXManager.Instance.PlaySoundClip(reloadAudioClip, transform, pitchShifting: true);
         UpdateAmmoSprite();
 
         Destroy(collidedItem.gameObject);

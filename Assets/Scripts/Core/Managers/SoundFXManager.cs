@@ -2,27 +2,36 @@ using UnityEngine;
 
 public class SoundFXManager : MonoBehaviour
 {
-    public static SoundFXManager instance;
+    public static SoundFXManager Instance;
     [SerializeField] private AudioSource soundFXObject;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            return;
         }
+
+        Destroy(gameObject);
     }
 
-    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume = 1.0f, bool pitchShifting = false)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+
+        if (pitchShifting)
+        {
+            audioSource.pitch = Random.Range(0.95f, 1.05f);
+        }
 
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();
 
         float clipLength = audioSource.clip.length;
-        Destroy(audioSource, clipLength);
+        Destroy(audioSource.gameObject, clipLength);
     }
 
     public void PlayRandomSoundClip(AudioClip[] audioClip, Transform spawnTransform, float volume)
@@ -36,6 +45,6 @@ public class SoundFXManager : MonoBehaviour
         audioSource.Play();
 
         float clipLength = audioSource.clip.length;
-        Destroy(audioSource, clipLength);
+        Destroy(audioSource.gameObject, clipLength);
     }
 }

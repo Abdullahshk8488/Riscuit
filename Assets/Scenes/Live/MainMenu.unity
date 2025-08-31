@@ -559,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f713cb1a5dde042aa093d6322e686e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiButtonPressAudioClip: {fileID: 8300000, guid: a43d75eb15357b94782e588a6bff3b0c, type: 3}
 --- !u!1 &811658573
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +879,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.15
+  m_fontSize: 58.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

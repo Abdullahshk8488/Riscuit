@@ -140,6 +140,8 @@ MonoBehaviour:
   reloadRadius: 2
   maxAmmo: 500
   ammoSprite: {fileID: 4055592344094932353}
+  shootAudioClip: {fileID: 8300000, guid: a5926202a20d80747b3d3cb89c603de2, type: 3}
+  reloadAudioClip: {fileID: 8300000, guid: 3a5d14dcd1cac2446a03e45d0eec9322, type: 3}
   ammoDropLayerMask:
     serializedVersion: 2
     m_Bits: 256
