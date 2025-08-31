@@ -49,12 +49,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 416907432166834432}
-  bulletSpeed: 5
+  bulletSpeed: 6
   destroyAfterSeconds: 5
   destroyOnHit: 1
   fireRate: 5
   animName: 
-  damage: 5
+  damage: 20
+  <GunFillingSprite>k__BackingField: {fileID: 0}
   bulletCollider: {fileID: 2607313770380239959}
   animator: {fileID: 3012195477618427969}
 --- !u!212 &3443459618023891918

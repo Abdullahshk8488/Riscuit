@@ -68,7 +68,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 3
 --- !u!114 &4782233849611100129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,13 +189,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <currentNode>k__BackingField: {fileID: 0}
   <path>k__BackingField: []
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 75
   <CurrentHealth>k__BackingField: 0
   bulletPrefab: {fileID: 4091920040616717153, guid: e4ced58a313182d4c9f55fe02d2ea9ee, type: 3}
   ammoDropPrefab: {fileID: 1808597092679479724, guid: de41572a8aafe0b4599b30a1772c8b59, type: 3}
   bulletSpawnLocation: {fileID: 7815359673041718328}
   player: {fileID: 0}
   speed: 3
+  attackSound: {fileID: 8300000, guid: 4f709c22111ab4f4d989e769f45485f0, type: 3}
+  hurtSound: {fileID: 8300000, guid: 229e66d41a7cf8b4c84686c0ac539e7f, type: 3}
+  explosionSound: {fileID: 8300000, guid: fe8e6478bc399634182d2832cc205bd3, type: 3}
   enemyAnimator: {fileID: 6951168597880199239}
   attackAnimator: {fileID: 7255230022024586635}
   animationDuration: 0.5

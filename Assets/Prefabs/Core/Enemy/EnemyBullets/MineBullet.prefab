@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8212427422923357183}
-  - component: {fileID: 8136804124000987972}
-  - component: {fileID: 5255791516471951979}
-  - component: {fileID: 8066559893042683513}
+  - component: {fileID: -1416874540042066858}
+  - component: {fileID: -887786132069953402}
+  - component: {fileID: 7945601109079202272}
   m_Layer: 0
   m_Name: MineBullet
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8136804124000987972
+--- !u!114 &-1416874540042066858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,15 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6939fee0178e2214d87a90cfde342f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5255791516471951979}
+  rb: {fileID: -887786132069953402}
   bulletSpeed: 0
   destroyAfterSeconds: 0
-  destroyOnHit: 0
+  destroyOnHit: 1
   fireRate: 0
   animName: 
-  damage: 0
+  damage: 50
   <GunFillingSprite>k__BackingField: {fileID: 0}
---- !u!50 &5255791516471951979
+--- !u!50 &-887786132069953402
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -81,25 +81,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &8066559893042683513
-Animator:
-  serializedVersion: 7
+--- !u!58 &7945601109079202272
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7091098168870994719}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bf645c52c0be364598b10210ffbe214, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3

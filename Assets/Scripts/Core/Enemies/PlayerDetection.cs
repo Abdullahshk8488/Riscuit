@@ -8,6 +8,11 @@ public class PlayerDetection : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (gameObject.CompareTag("Explosive"))
+            {
+                enemyController.SwitchState(enemyController.ExplosiveState);
+                Destroy(gameObject);
+            }
             enemyController.OnTriggerEnter2D(collision);
         }
     }
@@ -16,6 +21,10 @@ public class PlayerDetection : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (gameObject.CompareTag("Explosive"))
+            {
+                
+            }
             enemyController.OnTriggerExit2D(collision);
         }
     }

@@ -53,13 +53,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <currentNode>k__BackingField: {fileID: 0}
   <path>k__BackingField: []
-  <MaxHealth>k__BackingField: 50
+  <MaxHealth>k__BackingField: 100
   <CurrentHealth>k__BackingField: 0
   bulletPrefab: {fileID: 507675976334845899, guid: 646b17bdd4fbe1740b0e0b61e75662df, type: 3}
   ammoDropPrefab: {fileID: 7200215506687278030, guid: 89fbb4aac92eec84781e963f0f70ec9d, type: 3}
   bulletSpawnLocation: {fileID: 978938827559535191}
   player: {fileID: 0}
-  speed: 5
+  speed: 2
+  attackSound: {fileID: 8300000, guid: 6b540c1555c32ac48b8cc3db65e723e5, type: 3}
+  hurtSound: {fileID: 8300000, guid: 229e66d41a7cf8b4c84686c0ac539e7f, type: 3}
+  explosionSound: {fileID: 8300000, guid: fe8e6478bc399634182d2832cc205bd3, type: 3}
   enemyAnimator: {fileID: 746833622554226611}
   attackAnimator: {fileID: 1449638203378835759}
   animationDuration: 2
@@ -398,6 +401,7 @@ GameObject:
   - component: {fileID: 978938827559535191}
   - component: {fileID: 1710596127645586833}
   - component: {fileID: 1449638203378835759}
+  - component: {fileID: 2217214339181167245}
   m_Layer: 0
   m_Name: MidPart
   m_TagString: Untagged
@@ -497,6 +501,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2217214339181167245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973245569564356819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c412d1876fb83542a282e90f94ea2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 8764242967621332497}
+  sprite: {fileID: 1710596127645586833}
 --- !u!1001 &717279770214141571
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -107,9 +107,10 @@ MonoBehaviour:
   bulletSpeed: 3
   destroyAfterSeconds: 5
   destroyOnHit: 1
-  fireRate: 0.5
+  fireRate: 0.25
   animName: 
-  damage: 25
+  damage: 75
+  <GunFillingSprite>k__BackingField: {fileID: 0}
   bulletCollider: {fileID: 2321576913722990496}
 --- !u!50 &416907432166834432
 Rigidbody2D:

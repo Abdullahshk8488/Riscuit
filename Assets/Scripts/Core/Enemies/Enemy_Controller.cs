@@ -17,6 +17,9 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public Transform bulletSpawnLocation;
     public Player player;
     public float speed = 3;
+    public AudioClip attackSound;
+    public AudioClip hurtSound;
+    public AudioClip explosionSound;
     [Header("Animator")]
     public Animator enemyAnimator;
     public Animator attackAnimator;
@@ -79,7 +82,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public void DamageTaken(float damageAmount)
     {
         CurrentHealth -= damageAmount;
-        Debug.Log($"Enemy took {damageAmount} damage. Current health: {CurrentHealth}");
+        SoundFXManager.Instance.PlaySoundClip(hurtSound, transform);
     }
     public void Die()
     {
@@ -97,8 +100,21 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     {
         if (OnCooldown) return;
 
+        if (_currentState == ExplosiveState)
+        {
+            StartCoroutine(PreparingMine());
+            return;
+        }
+
         OnCooldown = true;
         StartCoroutine(AttackSequence());
+    }
+
+    private IEnumerator PreparingMine()
+    {
+        yield return new WaitForSeconds(animationDuration);
+        enemyAnimator.SetBool("IsAttacking", true);
+        bulletPrefab.gameObject.SetActive(true);
     }
 
     private IEnumerator AttackSequence()
@@ -113,6 +129,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         BaseIcing bullet = Instantiate(bulletPrefab);
         bullet.transform.position = bulletSpawnLocation.position;
         Vector2 direction = (player.transform.position - transform.position).normalized;
+        SoundFXManager.Instance.PlaySoundClip(attackSound, transform);
         bullet.Shoot(direction);
 
         // Go on cooldown
@@ -124,6 +141,18 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         attackAnimator.SetBool("ResetAmmo", true);
         yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
         OnCooldown = false;
+    }
+
+    public void ExplodeMine()
+    {
+        bulletPrefab.GetComponent<CircleCollider2D>().enabled = true;
+        SoundFXManager.Instance.PlaySoundClip(explosionSound, transform);
+    }
+
+    public void DestroyMine()
+    {
+        Instantiate(ammoDropPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnDestroy()

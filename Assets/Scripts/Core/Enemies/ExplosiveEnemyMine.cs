@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class ExplosiveEnemyMine : BaseIcing
 {
+
+    protected override void Start()
+    {
+
+    }
+
     public override void Shoot(Vector2 direction)
     {
         
@@ -11,11 +17,10 @@ public class ExplosiveEnemyMine : BaseIcing
     {
         if (collision.CompareTag("Player"))
         {
-            Player player = collision.GetComponent<Player>();
-            if (player != null)
-            {
-                collision.GetComponent<IDamageable>().DamageTaken(damage);
-                Destroy(gameObject);
+           if (collision.GetComponent<Player>() != null)
+           {
+               collision.GetComponent<IDamageable>().DamageTaken(damage);
+               Destroy(gameObject);
             }
         }
     }
