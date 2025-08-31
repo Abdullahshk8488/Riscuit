@@ -145,8 +145,8 @@ MonoBehaviour:
   bulletSpawnLocation: {fileID: 2527181969670802900}
   player: {fileID: 0}
   speed: 3
-  enemyAnimator: {fileID: 0}
-  attackAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 6462182684975154106}
+  attackAnimator: {fileID: 6738618417950276095}
   animationDuration: 0
 --- !u!95 &6462182684975154106
 Animator:
@@ -374,5 +374,10 @@ PrefabInstance:
 --- !u!4 &4867876620274867321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8212427422923357183, guid: 7045a329bb120d0419c1a889a99fbee6, type: 3}
+  m_PrefabInstance: {fileID: 3636178155706541958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6738618417950276095 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8066559893042683513, guid: 7045a329bb120d0419c1a889a99fbee6, type: 3}
   m_PrefabInstance: {fileID: 3636178155706541958}
   m_PrefabAsset: {fileID: 0}

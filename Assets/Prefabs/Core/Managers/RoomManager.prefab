@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 3895360296894067909, guid: 32a70eaee4999ee4e9159e90596d5c87, type: 3}
-  doorTrigger: {fileID: 2786639711868928814, guid: 5c425bdf0b1347f4b96e21f8c2d6d350, type: 3}
+  doorTrigger: {fileID: 7035680620322091746, guid: 5c425bdf0b1347f4b96e21f8c2d6d350, type: 3}
+  enemies:
+  - {fileID: 8764242967621332497, guid: 79fd152560ac96b48bdc6576edb77384, type: 3}
+  - {fileID: 1291437917614336826, guid: beecfb22486a3694abf6140a27a4a2ef, type: 3}

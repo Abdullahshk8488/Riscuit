@@ -5,7 +5,8 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance { get; private set; }
     [SerializeField] private Node nodePrefab;
-    [SerializeField] private GameObject doorTrigger;
+    [SerializeField] private DoorTrigger doorTrigger;
+    [SerializeField] private List<Enemy_Controller> enemies;
     private List<Room> rooms = new List<Room>();
     public Room CurrentRoom { get; private set; }
     private int _roomCount = 0;
@@ -19,6 +20,11 @@ public class RoomManager : MonoBehaviour
             if (CurrentRoom == null) return null;
             return CurrentRoom.RoomNodes;
         }
+    }
+
+    public Enemy_Controller GetRandomEnemy
+    {
+        get =>  enemies[Random.Range(0, enemies.Count)];
     }
 
     private void Awake()
@@ -155,6 +161,7 @@ public class RoomManager : MonoBehaviour
         }
 
         CurrentRoom = rooms[0];
+        CurrentRoom.isStartingRoom = true;
     }
 
     public void PlaceTriggers(List<CorridorStartEnd> corridors)
@@ -166,11 +173,11 @@ public class RoomManager : MonoBehaviour
 
         for (int i = 0; i < corridors.Count; i++)
         {
-            GameObject go = Instantiate(doorTrigger);
+            DoorTrigger go = Instantiate(doorTrigger);
             go.transform.position = (Vector2)corridors[i].start;
             go.transform.SetParent(_doorTriggers.transform);
         }
-        GameObject goEnd = Instantiate(doorTrigger);
+        DoorTrigger goEnd = Instantiate(doorTrigger);
         goEnd.transform.position = (Vector2)corridors[corridors.Count - 1].end;
         goEnd.transform.SetParent(_doorTriggers.transform);
     }
@@ -192,7 +199,9 @@ public class RoomManager : MonoBehaviour
             {
                 if (IsTriggerInRoom(triggers[i].transform, room))
                 {
-                    room.TriggerObject = triggers[i];
+                    DoorTrigger doorTrigger = triggers[i].GetComponent<DoorTrigger>();
+                    room.SetDoorTrigger(doorTrigger);
+
                     deleteTrigger = false;
                     continue;
                 }

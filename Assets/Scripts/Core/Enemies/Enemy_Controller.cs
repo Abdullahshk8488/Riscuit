@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Controller : MonoBehaviour, IDamageable
 {
     [Header("Pathfinding")]
-    [field: SerializeField] public Node currentNode { get; private set; }
+    [field: SerializeField] public Node currentNode { get; set; }
     [field: SerializeField] public List<Node> path { get; private set; }
     [Header("Health")]
     [field: SerializeField] public float MaxHealth { get; set; }
@@ -34,7 +34,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
 
 
 
-    private void Awake()
+    private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493024504475816127}
   - component: {fileID: 1821685431979189642}
+  - component: {fileID: 7035680620322091746}
   m_Layer: 9
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -76,5 +77,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!114 &7035680620322091746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786639711868928814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081c445201391d74bb5bbfce23b47e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <room>k__BackingField: {fileID: 0}

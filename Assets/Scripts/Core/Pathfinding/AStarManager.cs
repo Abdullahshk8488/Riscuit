@@ -23,8 +23,9 @@ public class AStarManager : MonoBehaviour
         List<Node> openSet = new List<Node>();
 
         // Looping through all nodes in the scene and we don't care about sorting
-        foreach (Node n in NodesInScene())
+        foreach (Node n in NodeInCurrentRoom())
         {
+            Debug.Log("Populating values");
             n.gScore = float.MaxValue;
         }
 
@@ -96,7 +97,7 @@ public class AStarManager : MonoBehaviour
         Node foundNode = null;
         float minDistance = float.MaxValue;
 
-        foreach (Node node in NodesInScene())
+        foreach (Node node in NodeInCurrentRoom())
         {
             float currentDistance = Vector2.Distance(position, node.transform.position);
             if (currentDistance <  minDistance)
@@ -114,7 +115,7 @@ public class AStarManager : MonoBehaviour
         Node foundNode = null;
         float maxDistance = 0;
 
-        foreach (Node node in NodesInScene())
+        foreach (Node node in NodeInCurrentRoom())
         {
             float currentDistance = Vector2.Distance(position, node.transform.position);
             if (currentDistance > maxDistance)
@@ -130,5 +131,10 @@ public class AStarManager : MonoBehaviour
     public Node[] NodesInScene()
     {
         return FindObjectsByType<Node>(FindObjectsSortMode.None);
+    }
+
+    public Node[] NodeInCurrentRoom()
+    {
+        return RoomManager.Instance.CurrentRoom.RoomNodes.ToArray();
     }
 }
