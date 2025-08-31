@@ -12,22 +12,25 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     [field: SerializeField] public float CurrentHealth { get; set; }
     [Header("Enemy Data")]
     public BaseIcing bulletPrefab;
+    public AmmoDrop ammoDropPrefab;
     public Transform bulletSpawnLocation;
     public Player player;
     public float speed = 3;
     [Header("Animator")]
-    [SerializeField] private Animator animator;
+    public Animator enemyAnimator;
+    public Animator attackAnimator;
     [SerializeField] private float animationDuration;
 
     public bool IsShooting { get; set; } = true;
     public bool CanShoot { get; set; } = true;
     public bool OnCooldown { get; set; } = false;
 
-    private IEnemyBaseState _currentState;
+    public IEnemyBaseState _currentState { get; private set; }
     public EnemyPursueState PursueState = new EnemyPursueState();
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyRunAwayState RunAwayState = new EnemyRunAwayState();
     public EnemyDeadState DeadState = new EnemyDeadState();
+    public EnemyExplosionState ExplosiveState = new EnemyExplosionState();
 
 
 
@@ -77,6 +80,17 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         CurrentHealth -= damageAmount;
         Debug.Log($"Enemy took {damageAmount} damage. Current health: {CurrentHealth}");
     }
+    public void Die()
+    {
+        StartCoroutine(Dying());
+    }
+
+    private IEnumerator Dying()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Instantiate(ammoDropPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 
     public void Shot()
     {
@@ -89,7 +103,9 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     private IEnumerator AttackSequence()
     {
         // Pre attack animation
-        animator.SetBool("ResetAmmo", false);
+        enemyAnimator.SetBool("IsAttacking", true);
+        attackAnimator.SetBool("ResetAmmo", false);
+
         yield return new WaitForSeconds(animationDuration);
 
         // Shoot bullet
@@ -104,7 +120,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
 
     private IEnumerator ResetCooldown()
     {
-        animator.SetBool("ResetAmmo", true);
+        attackAnimator.SetBool("ResetAmmo", true);
         yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
         OnCooldown = false;
     }

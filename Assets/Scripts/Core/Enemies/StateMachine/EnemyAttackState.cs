@@ -29,12 +29,20 @@ public class EnemyAttackState : IEnemyBaseState
 
     public void TriggerEnter(Enemy_Controller enemy, Collider2D collision)
     {
+        enemy.IsShooting = true;
+        enemy.CanShoot = true;
     }
 
     public void TriggerExit(Enemy_Controller enemy, Collider2D collision)
     {
+        if (collision.CompareTag("Player") == false)
+        {
+            return;
+        }
+
         enemy.CanShoot = false;
         enemy.IsShooting = false;
+        enemy.enemyAnimator.SetBool("IsAttacking", false);
 
         enemy.SwitchState(enemy.PursueState);
     }
