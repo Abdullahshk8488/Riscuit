@@ -25,11 +25,12 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public bool CanShoot { get; set; } = true;
     public bool OnCooldown { get; set; } = false;
 
-    private IEnemyBaseState _currentState;
+    public IEnemyBaseState _currentState { get; private set; }
     public EnemyPursueState PursueState = new EnemyPursueState();
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyRunAwayState RunAwayState = new EnemyRunAwayState();
     public EnemyDeadState DeadState = new EnemyDeadState();
+    public EnemyExplosionState ExplosiveState = new EnemyExplosionState();
 
 
 
