@@ -97,4 +97,9 @@ public class Player : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(playDefeatScreenInSeconds);
         SceneController.Instance.LoadLevel("ScreenLose");
     }
+
+    private void OnDestroy()
+    {
+        PlayerManager.Instance.SetPlayer(null);
+    }
 }

@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     private Vector2 _direction = Vector2.right;
     private BaseIcing _currentIcing;
 
-    private void Awake()
+    private void Start()
     {
         _currentIcing = bulletPrefab;
         _currentAmmo = startAmmo;

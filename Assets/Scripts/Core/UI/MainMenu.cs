@@ -4,6 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartButton()
     {
+        GameManager.Instance.UnPauseGame();
         SceneController.Instance.LoadLevel("LV_0");
     }
 

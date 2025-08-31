@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8184964617653369418, guid: 5fd98751cea66dd409413c9626d592ca, type: 3}
   bulletSpawnLocation: {fileID: 8742421426986929391}
-  startAmmo: 100
+  startAmmo: 300
   reloadRadius: 2
   maxAmmo: 500
   ammoSprite: {fileID: 4055592344094932353}

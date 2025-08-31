@@ -27,7 +27,8 @@ public class SceneController : MonoBehaviour
 
     public void LoadLevel(string sceneName)
     {
-        StartCoroutine(FadeInOutTransition(sceneName));
+        //StartCoroutine(FadeInOutTransition(sceneName));
+        SceneManager.LoadScene(sceneName);
     }
 
     public void LoadLevel(int sceneIndex)
