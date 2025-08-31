@@ -24,7 +24,7 @@ public class RoomManager : MonoBehaviour
 
     public Enemy_Controller GetRandomEnemy
     {
-        get =>  enemies[Random.Range(0, enemies.Count)];
+        get => enemies[Random.Range(0, enemies.Count)];
     }
 
     private void Awake()
@@ -162,6 +162,7 @@ public class RoomManager : MonoBehaviour
 
         CurrentRoom = rooms[0];
         CurrentRoom.isStartingRoom = true;
+        CurrentRoom.IsRoomCleared = true;
     }
 
     public void PlaceTriggers(List<CorridorStartEnd> corridors)
@@ -236,5 +237,18 @@ public class RoomManager : MonoBehaviour
             && triggerTransform.position.y >= min.y
             && triggerTransform.position.x <= max.x
             && triggerTransform.position.y <= max.y;
+    }
+
+    public bool AllRoomsCleared()
+    {
+        foreach (Room room in rooms)
+        {
+            if (!room.IsRoomCleared)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

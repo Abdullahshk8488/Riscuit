@@ -102,6 +102,10 @@ public class Gun : MonoBehaviour
     public void Reload()
     {
         var collidedItem = Physics2D.OverlapCircle(transform.position, reloadRadius, ammoDropLayerMask);
+        if (collidedItem == null)
+        {
+            return;
+        }
 
         AmmoDrop ammoDrop = collidedItem.GetComponent<AmmoDrop>();
         _currentAmmo = Mathf.Min(_currentAmmo + ammoDrop.AmmoAmount, maxAmmo);

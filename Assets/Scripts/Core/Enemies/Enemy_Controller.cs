@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
     public EnemyDeadState DeadState = new EnemyDeadState();
     public EnemyExplosionState ExplosiveState = new EnemyExplosionState();
 
-
+    public event Action EnemyDeath;
 
     private void Start()
     {
@@ -123,5 +124,10 @@ public class Enemy_Controller : MonoBehaviour, IDamageable
         attackAnimator.SetBool("ResetAmmo", true);
         yield return new WaitForSeconds(1.0f / bulletPrefab.FireRate);
         OnCooldown = false;
+    }
+
+    private void OnDestroy()
+    {
+        EnemyDeath?.Invoke();
     }
 }

@@ -6,8 +6,10 @@ public class Room : MonoBehaviour
     public List<Node> RoomNodes { get; set; }
     public Transform CenterOfTheRoom { get; set; }
     public GameObject TriggerObject;
-    private bool _isFirstTimeTriggered = false;
+    private bool _hasBeenTriggered = false;
     public bool isStartingRoom = false;
+    public bool IsRoomCleared = false;
+    private int _enemySpawnedInRoom = 0;
 
     public void SetDoorTrigger(DoorTrigger doorTrigger)
     {
@@ -19,19 +21,23 @@ public class Room : MonoBehaviour
     {
         RoomManager.Instance.SetCurrentRoom(this);
 
-        if (!_isFirstTimeTriggered && !isStartingRoom)
+        if (!_hasBeenTriggered && !isStartingRoom)
         {
+            _hasBeenTriggered = true;
             SpawnEnemies();
         }
     }
 
     public void SpawnEnemies()
     {
-        for (int i = 0; i < 5; ++i)
+        int rand = Random.Range(1, 4);
+        _enemySpawnedInRoom += rand;
+        for (int i = 0; i < rand; ++i)
         {
             Enemy_Controller enemyController = Instantiate(RoomManager.Instance.GetRandomEnemy);
             enemyController.transform.position = CenterOfTheRoom.position;
             enemyController.currentNode = NearestNode(CenterOfTheRoom.position);
+            enemyController.EnemyDeath += EnemyDied;
         }
     }
 
@@ -49,5 +55,15 @@ public class Room : MonoBehaviour
             }
         }
         return closestNode;
+    }
+
+    private void EnemyDied()
+    {
+        _enemySpawnedInRoom--;
+        if (_enemySpawnedInRoom <= 0)
+        {
+            IsRoomCleared = true;
+            GameManager.Instance.CheckIfAllRoomsCompleted();
+        }
     }
 }

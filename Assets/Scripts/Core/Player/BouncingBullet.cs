@@ -5,8 +5,17 @@ public class BouncingBullet : BaseIcing
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        BounceBullet(collision);
+        if (collision.CompareTag("Player"))
+        {
+            return;
+        }
 
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy_Controller>().DamageTaken(damage);
+        }
+
+        BounceBullet(collision);
         numberOfBounces--;
         if (numberOfBounces == 0)
         {

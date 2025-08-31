@@ -41,4 +41,12 @@ public class GameManager : MonoBehaviour
             UnPauseGame();
         }
     }
+
+    public void CheckIfAllRoomsCompleted()
+    {
+        if(RoomManager.Instance.AllRoomsCleared())
+        {
+            SceneController.Instance.LoadLevel("ScreenWin");
+        }
+    }
 }

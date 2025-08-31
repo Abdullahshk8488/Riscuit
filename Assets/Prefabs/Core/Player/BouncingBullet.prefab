@@ -48,11 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6122567041641374614}
-  bulletSpeed: 6
+  bulletSpeed: 13
   destroyAfterSeconds: 5
   destroyOnHit: 0
   fireRate: 7
   animName: 
+  damage: 7
   <GunFillingSprite>k__BackingField: {fileID: -1617906994958041409, guid: fec2c25316101084db00d649f7de3b35, type: 3}
   numberOfBounces: 4
 --- !u!212 &3738477734049821085
