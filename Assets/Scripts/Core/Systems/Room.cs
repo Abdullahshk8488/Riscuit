@@ -30,7 +30,7 @@ public class Room : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        int rand = Random.Range(1, 4);
+        int rand = Random.Range(1, 6);
         _enemySpawnedInRoom += rand;
         for (int i = 0; i < rand; ++i)
         {

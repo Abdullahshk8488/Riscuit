@@ -24,8 +24,42 @@ public class EnemyPursueState : IEnemyBaseState
             enemy.SwitchState(enemy.DeadState);
             return;
         }
+
+        // --- Separation Logic ---
+        Vector2 separation = Vector2.zero;
+        float separationRadius = 1.5f; // tweak as needed
+        float separationStrength = 1.0f; // tweak as needed
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, separationRadius);
+        int nearbyEnemies = 0;
+        foreach (var hit in hits)
+        {
+            if (hit.gameObject != enemy.gameObject && hit.TryGetComponent<Enemy_Controller>(out var otherEnemy))
+            {
+                Vector2 away = (enemy.transform.position - otherEnemy.transform.position);
+                float distance = away.magnitude;
+                if (distance > 0)
+                {
+                    separation += away.normalized / distance;
+                    nearbyEnemies++;
+                }
+            }
+        }
+
+        // --- Pathfinding Movement ---
         Pursue();
         Createpath(enemy);
+
+        // --- Combine Movement ---
+        Vector2 moveDirection = Vector2.zero;
+        if (_path != null && _path.Count > 0)
+        {
+            Node nextNode = _path[0];
+            moveDirection = (nextNode.transform.position - enemy.transform.position).normalized;
+        }
+
+        Vector2 finalDirection = (moveDirection + separation * separationStrength).normalized;
+        enemy.transform.position += (Vector3)(finalDirection * enemy.speed * Time.deltaTime);
     }
 
     public void TriggerEnter(Enemy_Controller enemy, Collider2D collision)
