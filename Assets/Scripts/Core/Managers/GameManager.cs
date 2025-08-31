@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -44,9 +45,15 @@ public class GameManager : MonoBehaviour
 
     public void CheckIfAllRoomsCompleted()
     {
-        if(RoomManager.Instance.AllRoomsCleared())
+        if (RoomManager.Instance.AllRoomsCleared())
         {
-            SceneController.Instance.LoadLevel("ScreenWin");
+            StartCoroutine(SwitchToWinScreen());
         }
+    }
+
+    private IEnumerator SwitchToWinScreen()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneController.Instance.LoadLevel("ScreenWin");
     }
 }

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 8184964617653369418, guid: 5fd98751cea66dd409413c9626d592ca, type: 3}
-  <AmmoAmount>k__BackingField: 100
+  <AmmoAmount>k__BackingField: 75
 --- !u!58 &972139461092250926
 CircleCollider2D:
   m_ObjectHideFlags: 0

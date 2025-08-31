@@ -55,7 +55,7 @@ MonoBehaviour:
   <moveSpeed>k__BackingField: 10
   <PlayerGun>k__BackingField: {fileID: 2113436114156901658}
   <PlayerDash>k__BackingField: {fileID: 6134762283666736436}
-  <MaxHealth>k__BackingField: 300
+  <MaxHealth>k__BackingField: 200
   <CurrentHealth>k__BackingField: 0
   spriteAndHealths:
   - startHealthPercentage: 1
@@ -308,14 +308,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4702267138494662035}
     m_Modifications:
     - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2137155002128744224, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.497
       objectReference: {fileID: 0}
@@ -351,18 +343,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4055592344094932353, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7071924685563151038, guid: fec2c25316101084db00d649f7de3b35, type: 3}
     - target: {fileID: 4115003345631325141, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
-    - target: {fileID: 6269172827420680049, guid: 5f80ff68eabea8547b47516bc9a33cc5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb6217c697e186e43abca772823ce2cd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
