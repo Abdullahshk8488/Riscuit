@@ -1,18 +1,32 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private BaseIcing bulletPrefab;
     [SerializeField] private Transform bulletSpawnLocation;
-    [SerializeField] private float fireRate;
-    [SerializeField] private float ammoCount;
+    [SerializeField] private int startAmmo;
+    [SerializeField] private float reloadRadius;
+    [SerializeField] private int maxAmmo;
+    [SerializeField] private SpriteRenderer ammoSprite;
+    [SerializeField] private AudioClip shootAudioClip;
+    [SerializeField] private AudioClip reloadAudioClip;
 
+    [SerializeField] private LayerMask ammoDropLayerMask;
+
+    private int _currentAmmo = 0;
     private bool _canShoot = true;
     private bool _onCooldown = false;
     private bool _isShooting = false;
     private Vector2 _direction = Vector2.right;
+    private BaseIcing _currentIcing;
+
+    private void Start()
+    {
+        _currentIcing = bulletPrefab;
+        _currentAmmo = startAmmo;
+        UpdateAmmoSprite();
+    }
 
     private void Update()
     {
@@ -20,13 +34,31 @@ public class Gun : MonoBehaviour
             _onCooldown
             || !_canShoot
             || !_isShooting
-            || ammoCount == 0
+            || _currentAmmo == 0
             )
         {
             return;
         }
 
         Shoot();
+    }
+
+    private void UpdateAmmoSprite()
+    {
+        float xScale = (float)_currentAmmo / (float)maxAmmo;
+        Vector3 scale = new Vector3(
+            xScale,
+            ammoSprite.transform.localScale.y,
+            ammoSprite.transform.localScale.z);
+
+        float xTransform = (xScale - 1.0f) * 0.5f;
+        Vector3 position = new Vector3(
+            xTransform,
+            ammoSprite.transform.localPosition.y,
+            ammoSprite.transform.localPosition.z);
+
+        ammoSprite.transform.localScale = scale;
+        ammoSprite.transform.localPosition = position;
     }
 
     public void SetShootDirection(Vector2 direction)
@@ -37,10 +69,6 @@ public class Gun : MonoBehaviour
         {
             _direction.x = 0.0f;
         }
-        //else if (direction.x != 0.0f)
-        //{
-        //    moveDirection = direction.x > 0.0f ? PlayerMovement.Direction.Right : PlayerMovement.Direction.Left;
-        //}
 
         // Rotate the gun
         transform.right = _direction;
@@ -54,23 +82,38 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         // Spawn the bullet
-        Bullet bullet = Instantiate(bulletPrefab);
+        BaseIcing bullet = Instantiate(_currentIcing);
         bullet.transform.position = bulletSpawnLocation.position;
         bullet.Shoot(_direction);
-
-        // Go on cooldown
+        _currentAmmo--;
         _onCooldown = true;
+
+        SoundFXManager.Instance.PlaySoundClip(shootAudioClip, transform);
+        UpdateAmmoSprite();
         StartCoroutine(ResetCooldown());
     }
 
     private IEnumerator ResetCooldown()
     {
-        yield return new WaitForSeconds(1.0f / fireRate);
+        yield return new WaitForSeconds(1.0f / _currentIcing.FireRate);
         _onCooldown = false;
     }
 
-    public void Reload(float ammo)
+    public void Reload()
     {
-        ammoCount += ammo;
+        var collidedItem = Physics2D.OverlapCircle(transform.position, reloadRadius, ammoDropLayerMask);
+        if (collidedItem == null)
+        {
+            return;
+        }
+
+        AmmoDrop ammoDrop = collidedItem.GetComponent<AmmoDrop>();
+        _currentAmmo = Mathf.Min(_currentAmmo + ammoDrop.AmmoAmount, maxAmmo);
+        _currentIcing = ammoDrop.BulletPrefab;
+        ammoSprite.sprite = _currentIcing.GunFillingSprite;
+        SoundFXManager.Instance.PlaySoundClip(reloadAudioClip, transform, pitchShifting: true);
+        UpdateAmmoSprite();
+
+        Destroy(collidedItem.gameObject);
     }
 }

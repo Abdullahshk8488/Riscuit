@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Live/MainMenu.unity
+    guid: 1ed5ffa5103c5044a9c5a2e94d662aa7
+  - enabled: 1
+    path: Assets/Scenes/Live/ScreenLose.unity
+    guid: 0c6094b891713bd4fbf39f4d845f76df
+  - enabled: 1
+    path: Assets/Scenes/Live/ScreenWin.unity
+    guid: 156028561a3afde4588ff3764eafbd6b
+  - enabled: 1
+    path: Assets/Scenes/Live/LV_0.unity
+    guid: 4372bd8704b9e3840b0200c5ae6ffe8d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
