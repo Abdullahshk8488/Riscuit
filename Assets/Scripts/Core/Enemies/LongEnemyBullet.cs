@@ -8,11 +8,11 @@ public class LongEnemyBullet : BaseIcing
 
     public override void Shoot(Vector2 direction)
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 toPlayer = ((Vector2)_player.transform.position - (Vector2)transform.position).normalized;
+        //_player = GameObject.FindGameObjectWithTag("Player");
+        //Vector2 toPlayer = ((Vector2)_player.transform.position - (Vector2)transform.position).normalized;
 
-        float angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //float angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         base.Shoot(direction);
     }
 
